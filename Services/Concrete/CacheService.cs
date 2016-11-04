@@ -81,6 +81,7 @@ namespace Services.Concrete
 
 		public DemoFilter Filter { get; set; }
 
+		static List<Demo> _demoCache = new List<Demo>();
 		#endregion
 
 		public CacheService()
@@ -108,6 +109,9 @@ namespace Services.Concrete
 
 		public async Task<List<Demo>> GetDemoListAsync()
 		{
+			if (_demoCache.Count > 0)
+				return _demoCache;
+
 			List<Demo> demos = new List<Demo>();
 			string[] fileList = Directory.GetFiles(_pathFolderCache);
 
@@ -164,12 +168,8 @@ namespace Services.Concrete
 
 					demoIdList.Add(basicData.Id);
 				}
-
-				foreach (string demoId in demoIdList)
-				{
-					Demo demo = await GetDemoDataFromCache(demoId);
-					demos.Add(demo);
-				}
+				var demoIds = _demoCache.Select(a => a.Id);
+				return _demoCache.Where(a => demoIds.Contains(a.Id)).ToList();
 			}
 			catch (Exception e)
 			{
@@ -973,6 +973,33 @@ namespace Services.Concrete
 			}
 
 			return hasUpdated;
+		}
+
+		public async Task<bool> InitDemoCache()
+		{
+			try
+			{
+				_demoCache = await GetDemoListAsync();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
+		}
+
+		public async Task<bool> RefreshDemoCache()
+		{
+			try
+			{
+				_demoCache.Clear();
+				_demoCache = await GetDemoListAsync();
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		private string GetDemoBasicFilePath()

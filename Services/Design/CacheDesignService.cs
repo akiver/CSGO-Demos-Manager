@@ -351,6 +351,16 @@ namespace Services.Design
 			return Task.FromResult(false);
 		}
 
+		public Task<bool> InitDemoCache()
+		{
+			return Task.FromResult(false);
+		}
+
+		public Task<bool> RefreshDemoCache()
+		{
+			return Task.FromResult(false);
+		}
+
 		public Task<List<Demo>> GetDemoListAsync()
 		{
 			List<Demo> demos = new List<Demo>();

@@ -188,5 +188,9 @@ namespace Services.Interfaces
 		/// </summary>
 		/// <returns></returns>
 		Task<bool> InitDemoBasicDataList();
+
+        Task<bool> InitDemoCache();
+
+        Task<bool> RefreshDemoCache();
 	}
 }

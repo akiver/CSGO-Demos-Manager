@@ -1655,6 +1655,7 @@ namespace Manager.ViewModel.Demos
 				HasRing = true;
 				NotificationMessage = Properties.Resources.NotificationInitCache;
 				await _cacheService.InitDemoBasicDataList();
+				await _cacheService.InitDemoCache();
 				HasNotification = false;
 				IsBusy = false;
 				HasRing = false;
