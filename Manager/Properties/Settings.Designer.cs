@@ -122,6 +122,18 @@ namespace Manager.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowPugSetupDemos {
+            get {
+                return ((bool)(this["ShowPugSetupDemos"]));
+            }
+            set {
+                this["ShowPugSetupDemos"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool ShowEbotDemos {
             get {
                 return ((bool)(this["ShowEbotDemos"]));

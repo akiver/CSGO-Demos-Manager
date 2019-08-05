@@ -160,6 +160,8 @@ namespace Services.Concrete.Analyzer
 					return new EbotAnalyzer(demo);
 				case Cevo.NAME:
 					return new CevoAnalyzer(demo);
+				case PugSetup.NAME:
+					return new PugSetupAnalyzer(demo);
 				case Pov.NAME:
 					return null;
 				default:
