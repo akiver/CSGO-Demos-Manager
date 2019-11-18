@@ -211,6 +211,7 @@ namespace Services.Concrete.Analyzer
 								Name = player.Name,
 								Side = player.Team.ToSide()
 							};
+                            pl.EnableUpdates();
 							Demo.Players.Add(pl);
 						}
 

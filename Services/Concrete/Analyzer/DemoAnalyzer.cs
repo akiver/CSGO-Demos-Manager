@@ -144,6 +144,11 @@ namespace Services.Concrete.Analyzer
 		protected abstract void HandleMatchStarted(object sender, MatchStartedEventArgs e);
 		protected abstract void HandleRoundStart(object sender, RoundStartedEventArgs e);
 
+        public DemoAnalyzer()
+        {
+            CurrentRound.EnableUpdates();
+        }
+
 		public static DemoAnalyzer Factory(Demo demo)
 		{
 			switch (demo.SourceName)
@@ -160,6 +165,8 @@ namespace Services.Concrete.Analyzer
 					return new EbotAnalyzer(demo);
 				case Cevo.NAME:
 					return new CevoAnalyzer(demo);
+				case PugSetup.NAME:
+					return new PugSetupAnalyzer(demo);
 				case Pov.NAME:
 					return null;
 				default:
@@ -232,6 +239,7 @@ namespace Services.Concrete.Analyzer
 				}
 			}
 
+            demo.EnableUpdates();
 			return demo;
 		}
 
@@ -1290,6 +1298,8 @@ namespace Services.Concrete.Analyzer
 					Application.Current.Dispatcher.Invoke(() => Demo.TeamT.Players.Add(newPlayer));
 					newPlayer.TeamName = Demo.TeamT.Name;
 				}
+
+                newPlayer.EnableUpdates();
 				return;
 			}
 			player.IsConnected = true;
@@ -1416,6 +1426,8 @@ namespace Services.Concrete.Analyzer
 				CurrentRound.StartMoneyTeamCt = Parser.Participants.Where(a => a.Team.ToSide() == Side.CounterTerrorist).Sum(a => a.Money);
 				CurrentRound.StartMoneyTeamT = Parser.Participants.Where(a => a.Team.ToSide() == Side.Terrorist).Sum(a => a.Money);
 			}
+
+            CurrentRound.EnableUpdates();
 
 			// save demo's state in case of game pause
 			DemoBackup = Demo.Copy();

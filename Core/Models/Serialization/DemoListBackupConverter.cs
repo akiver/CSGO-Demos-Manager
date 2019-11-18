@@ -64,6 +64,7 @@ namespace Core.Models.Serialization
 						Status = Convert.ToString(((JValue) obj["status"]).Value)
 					};
 					if (!string.IsNullOrEmpty(demo.Comment) || !string.IsNullOrEmpty(demo.Status)) demos.Add(demo);
+                    demo.EnableUpdates();
 				}
 			}
 

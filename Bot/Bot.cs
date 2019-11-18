@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
@@ -46,11 +46,11 @@ namespace SuspectsBot
 		public event EventHandler<CsgoClosedEvent> CsgoClosed;
 
 		public async Task<bool> Check()
-		{
-			List<string> steamIdList = await _cacheService.GetSuspectsListFromCache();
+        {
+            _lastCheckDate = DateTime.Now;
+            List<string> steamIdList = await _cacheService.GetSuspectsListFromCache();
 			List<string> bannedSteamIdList = await _cacheService.GetSuspectsBannedList();
 			List<string> newBannedSteamIdList = await _steamService.GetNewSuspectBannedArray(steamIdList, bannedSteamIdList);
-			_lastCheckDate = DateTime.Now;
 
 			if (newBannedSteamIdList.Count > 0)
 			{

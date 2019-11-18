@@ -455,6 +455,8 @@ namespace Services.Concrete.Analyzer
 								}
 							}
 						}
+
+                        pl.EnableUpdates();
 					}
 				}
 			}

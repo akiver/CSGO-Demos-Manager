@@ -333,12 +333,13 @@ namespace Manager.ViewModel.Demos
 								PlayerColor playerColor = new PlayerColor
 								{
 									Name = positionPoints.First().PlayerName,
+                                    Team = positionPoints.First().Team.AsString(),
 									Color = new SolidColorBrush(MediaColor.FromRgb(col.R, col.G, col.B))
 								};
 								if (!PlayersColor.Contains(playerColor)) PlayersColor.Add(playerColor);
 							}
 
-							if (!Points.Any())
+                            if (!Points.Any())
 							{
 								await _dialogService.ShowMessageAsync(Properties.Resources.DialogNoPointsFound, MessageDialogStyle.Affirmative);
 								IsBusy = false;

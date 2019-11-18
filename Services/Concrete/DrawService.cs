@@ -275,9 +275,13 @@ namespace Services.Concrete
 		{
 			try
 			{
-				PlayerMarkerLayer.FillEllipseCentered((int)positionPoint.X, (int)positionPoint.Y, 5, 5, positionPoint.Color);
+                if (positionPoint.Team == Side.CounterTerrorist)
+                    PlayerMarkerLayer.FillEllipseCentered((int)positionPoint.X, (int)positionPoint.Y, 5, 5, positionPoint.Color);
+                else
+                    PlayerMarkerLayer.DrawEllipseCentered((int)positionPoint.X, (int)positionPoint.Y, 5, 5, positionPoint.Color);
+                //PlayerMarkerLayer.FillQuad((int)positionPoint.X - 2, (int)positionPoint.Y - 2, (int)positionPoint.X + 2, (int)positionPoint.Y - 2, (int)positionPoint.X - 2, (int)positionPoint.Y + 2, (int)positionPoint.X + 2, (int)positionPoint.Y + 2, positionPoint.Color);
 
-				Bitmap icon = null;
+                Bitmap icon = null;
 				if (positionPoint.PlayerHasBomb)
 				{
 					icon = GetIconBitmapFromStream("bomb_overview");
@@ -286,9 +290,13 @@ namespace Services.Concrete
 
 				await Task.Delay(200);
 
-				PlayerMarkerLayer.FillEllipseCentered((int)positionPoint.X, (int)positionPoint.Y, 5, 5, Colors.Transparent);
+                if (positionPoint.Team == Side.CounterTerrorist)
+                    PlayerMarkerLayer.FillEllipseCentered((int)positionPoint.X, (int)positionPoint.Y, 5, 5, Colors.Transparent);
+                else
+                    PlayerMarkerLayer.DrawEllipseCentered((int)positionPoint.X, (int)positionPoint.Y, 5, 5, Colors.Transparent);
+                //PlayerMarkerLayer.FillQuad((int)positionPoint.X - 2, (int)positionPoint.Y - 2, (int)positionPoint.X + 2, (int)positionPoint.Y - 2, (int)positionPoint.X - 2, (int)positionPoint.Y + 2, (int)positionPoint.X + 2, (int)positionPoint.Y + 2, Colors.Transparent);
 
-				if (positionPoint.PlayerHasBomb)
+                if (positionPoint.PlayerHasBomb)
 				{
 					await Task.Delay(200);
 

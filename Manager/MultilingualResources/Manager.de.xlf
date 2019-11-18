@@ -28,7 +28,7 @@
         </trans-unit>
         <trans-unit id="AccountStats" translate="yes" xml:space="preserve">
           <source>Account Stats</source>
-          <target state="final">Accountstatistiken</target>
+          <target state="final">Benutzer-Statistiken</target>
         </trans-unit>
         <trans-unit id="AddToSuspects" translate="yes" xml:space="preserve">
           <source>Add to suspects</source>
@@ -64,11 +64,11 @@
         </trans-unit>
         <trans-unit id="ShowAll" translate="yes" xml:space="preserve">
           <source>Show All</source>
-          <target state="final">Zeige alle</target>
+          <target state="final">Alle anzeigen</target>
         </trans-unit>
         <trans-unit id="ShowOnlyAccountDemos" translate="yes" xml:space="preserve">
           <source>Show Only Account Demos</source>
-          <target state="final">Zeige nur Demos zum Account</target>
+          <target state="final">Zeige nur Demos des Benutzers</target>
         </trans-unit>
         <trans-unit id="Stats" translate="yes" xml:space="preserve">
           <source>Stats</source>
@@ -104,27 +104,27 @@
         </trans-unit>
         <trans-unit id="EncounteredBug" translate="yes" xml:space="preserve">
           <source>If you encountered a bug or have any suggestions, feel free to open an issue on</source>
-          <target state="final">Falls Sie einen Fehler finden oder Vorschläge haben, melden Sie sich bitte unter</target>
+          <target state="final">Falls du einen Fehler findest oder Verbesserungsvorschläge hast, melde dich bitte unter</target>
         </trans-unit>
         <trans-unit id="OrSendAn" translate="yes" xml:space="preserve">
           <source>or send an</source>
-          <target state="final">oder senden Sie eine</target>
+          <target state="final">oder sende eine</target>
         </trans-unit>
         <trans-unit id="WantSayThank" translate="yes" xml:space="preserve">
           <source>If you want to say thank you, please feel free to make a</source>
-          <target state="final">Wenn Sie danken sagen möchten, können Sie gerne </target>
+          <target state="final">Wenn du danke sagen möchtest, kannst du gerne </target>
         </trans-unit>
         <trans-unit id="AlwaysDownload" translate="yes" xml:space="preserve">
           <source>Always download the application installer from the official website</source>
-          <target state="final">Bitte laden Sie den Installer immer nur von der offiziellen Website herunter!</target>
+          <target state="final">Bitte lade den Installer immer nur von der offiziellen Website herunter!</target>
         </trans-unit>
         <trans-unit id="Accounts" translate="yes" xml:space="preserve">
           <source>Accounts</source>
-          <target state="final">Accounts</target>
+          <target state="final">Benutzer</target>
         </trans-unit>
         <trans-unit id="AddAccount" translate="yes" xml:space="preserve">
           <source>Add account</source>
-          <target state="final">Account hinzufügen</target>
+          <target state="final">Benutzer hinzufügen</target>
         </trans-unit>
         <trans-unit id="AddFolder" translate="yes" xml:space="preserve">
           <source>Add folder</source>
@@ -188,7 +188,7 @@
         </trans-unit>
         <trans-unit id="BrowseToErrorsFile" translate="yes" xml:space="preserve">
           <source>Browse to errors file</source>
-          <target state="final">Error-Datei durchsuchen</target>
+          <target state="final">Fehlerdatei durchsuchen</target>
         </trans-unit>
         <trans-unit id="HeaderCrouchKills" translate="yes" xml:space="preserve">
           <source>CK</source>
@@ -2270,8 +2270,8 @@
         <trans-unit id="DialogExportPlayer" translate="yes" xml:space="preserve">
           <source>You are going to export data for the player "{0}".
 Do you want to continue?</source>
-          <target state="final">Sie sind dabei, Daten vom Spieler "{0}" zu exportieren.
-Wollen Sie fortfahren?</target>
+          <target state="final">Du bist dabei Daten vom Spieler "{0}" zu exportieren.
+Wollen sie fortfahren?</target>
         </trans-unit>
         <trans-unit id="DialogGoToTick" translate="yes" xml:space="preserve">
           <source>Goto Tick</source>
@@ -2288,28 +2288,28 @@ Wollen Sie fortfahren?</target>
         <trans-unit id="DialogRemoveDemosFromCacheConfirmation" translate="yes" xml:space="preserve">
           <source>Are you sure you want to delete this demo(s) from data cache?
 This will not delete this demo(s) from your HDD.</source>
-          <target state="final">Sind Sie sich sicher, dass Sie diese Demo(s) aus dem Dateien-Cache entfernen wollen?
-Dies löscht nicht ihre Demos auf der Festplatte.</target>
+          <target state="final">Bist du sicher dass du diese Demo(s) aus dem Dateien-Cache entfernen willst?
+Dies löscht nicht die Demos auf deiner Festplatte.</target>
         </trans-unit>
         <trans-unit id="DialogRestartSteam" translate="yes" xml:space="preserve">
           <source>You have to restart Steam.</source>
-          <target state="final">Bitte starten Sie Steam neu.</target>
+          <target state="final">Du musst Steam neustarten.</target>
         </trans-unit>
         <trans-unit id="DialogSelectAccountFirst" translate="yes" xml:space="preserve">
           <source>You have to select an account first.</source>
-          <target state="final">Bitte wählen Sie zunächst einen Account aus.</target>
+          <target state="final">Du musst erst ein Benutzerkonto wählen.</target>
         </trans-unit>
         <trans-unit id="DialogSendToRecycleBinConfimation" translate="yes" xml:space="preserve">
           <source>Are you sure you want to send this demo(s) to Recycle Bin?</source>
-          <target state="final">Sind Se sich sicher, dass Sie die Demo(s) in den Papierkorb verschieben wollen?</target>
+          <target state="final">Bist du sicher, dass du die Demo(s) in den Papierkorb verschieben willst?</target>
         </trans-unit>
         <trans-unit id="DialogSetAccountToFocus" translate="yes" xml:space="preserve">
           <source>You have to set the account that you want to focus from settings to be able to use this feature.</source>
-          <target state="final">Sie müssen den Account auswählen, um diese Funktionen zu nutzen</target>
+          <target state="final">Du musst ein Benutzerkonto auswählen um diese Funktionen zu nutzen.</target>
         </trans-unit>
         <trans-unit id="DialogSetFolderForDownload" translate="yes" xml:space="preserve">
           <source>You have to select the folder where demos will be saved from settings.</source>
-          <target state="final">Sie müssen den Ordner in den Einstellungen auswählen, in dem die Demos gespeicher werden sollen.</target>
+          <target state="final">Du musst den Ordner auswählen in dem die Demos gespeichert werden sollen (Einstellungen)</target>
         </trans-unit>
         <trans-unit id="DialogSteamNotFound" translate="yes" xml:space="preserve">
           <source>Steam doesn't seems to be installed.
@@ -2319,7 +2319,7 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="DialogSteamNotRunningOrNotLoggedIn" translate="yes" xml:space="preserve">
           <source>Steam is not running or you are not connected to a Steam account.</source>
-          <target state="final">Steam ist nicht geöffnet oder Sie sind nicht mit einem Steamaccount eingeloggt.</target>
+          <target state="final">Steam ist nicht gestartet oder du bist nicht mit einem Benutzerkonto eingeloggt.</target>
         </trans-unit>
         <trans-unit id="Error" translate="yes" xml:space="preserve">
           <source>Error</source>
@@ -2335,15 +2335,15 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="NotificationAddingSuspects" translate="yes" xml:space="preserve">
           <source>Adding suspects...</source>
-          <target state="final">Füge Verdächtigen hinzu...</target>
+          <target state="final">Verdächtige hinzufügen...</target>
         </trans-unit>
         <trans-unit id="NotificationAnalyzingDemosForExport" translate="yes" xml:space="preserve">
           <source>Analyzing demos for export...</source>
-          <target state="final">Analysiere Demos für Exportvorgang...</target>
+          <target state="final">Analysiere Demos für den Export...</target>
         </trans-unit>
         <trans-unit id="NotificationAnalyzingForJsonExport" translate="yes" xml:space="preserve">
           <source>Analyzing demo(s) for json export...</source>
-          <target state="final">Analysiere Demos(s) für json Exportvorgang...</target>
+          <target state="final">Analysiere Demos(s) für json Export...</target>
         </trans-unit>
         <trans-unit id="NotificationAnalyzingMultipleDemos" translate="yes" xml:space="preserve">
           <source>Analyzing multiple demos...</source>
@@ -2351,15 +2351,15 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="NotificationCancelling" translate="yes" xml:space="preserve">
           <source>Cancelling...</source>
-          <target state="final">Abbrechen...</target>
+          <target state="final">Breche ab...</target>
         </trans-unit>
         <trans-unit id="NotificationCheckingNewBanned" translate="yes" xml:space="preserve">
           <source>Checking for new banned suspects...</source>
-          <target state="final">Überprüfe auf neu gebannte Verdächtige...</target>
+          <target state="final">Prüfe auf neu gebannte Verdächtige...</target>
         </trans-unit>
         <trans-unit id="NotificationDownloadingDemo" translate="yes" xml:space="preserve">
           <source>Downloading demo {0}/{1}...</source>
-          <target state="final">Demo herunterladen {0}/{1}...</target>
+          <target state="final">Lade Demo {0}/{1} herunter...</target>
         </trans-unit>
         <trans-unit id="NotificationExportingDemo" translate="yes" xml:space="preserve">
           <source>Exporting demo {0}...</source>
@@ -2367,7 +2367,7 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="NotificationExtractingDemo" translate="yes" xml:space="preserve">
           <source>Extracting demo {0}/{1}...</source>
-          <target state="final">Demo entpacken {0}/{1}...</target>
+          <target state="final">Entpacke Demo {0}/{1}...</target>
         </trans-unit>
         <trans-unit id="NotificationInitCache" translate="yes" xml:space="preserve">
           <source>Initializing cache...</source>
@@ -2379,19 +2379,19 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="NotificationLoading" translate="yes" xml:space="preserve">
           <source>Loading...</source>
-          <target state="final">Lädt...</target>
+          <target state="final">Lade...</target>
         </trans-unit>
         <trans-unit id="NotificationLoadingAllDemos" translate="yes" xml:space="preserve">
           <source>Loading all demos...</source>
-          <target state="final">Lädt alle Demos...</target>
+          <target state="final">Lade alle Demos...</target>
         </trans-unit>
         <trans-unit id="NotificationLoadingDemos" translate="yes" xml:space="preserve">
           <source>Loading demos...</source>
-          <target state="final">Lädt Demos...</target>
+          <target state="final">Lade Demos...</target>
         </trans-unit>
         <trans-unit id="NotificationLoadingMoreDemos" translate="yes" xml:space="preserve">
           <source>Loading more demos...</source>
-          <target state="final">Lädt mehr Demos...</target>
+          <target state="final">Lade mehr Demos...</target>
         </trans-unit>
         <trans-unit id="NotificationNoDemosFound" translate="yes" xml:space="preserve">
           <source>No demos found</source>
@@ -2399,7 +2399,7 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="NotificationNoDemosFoundForAccount" translate="yes" xml:space="preserve">
           <source>No demos found for this account</source>
-          <target state="final">Keine Demos für diesen Account gefunden</target>
+          <target state="final">Keine Demos für dieses Benutzerkonto gefunden</target>
         </trans-unit>
         <trans-unit id="NotificationPlayDemoCommandCopied" translate="yes" xml:space="preserve">
           <source>Playdemo command copied to clipboard</source>
@@ -2407,7 +2407,7 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="NotificationRetrievingMatchesData" translate="yes" xml:space="preserve">
           <source>Retrieving last matches information...</source>
-          <target state="final">Erhalte Informationen über das letzte Spiel.</target>
+          <target state="final">Erhalte Informationen über das letzte Spiel...</target>
         </trans-unit>
         <trans-unit id="NotificationSearchingLastRank" translate="yes" xml:space="preserve">
           <source>Searching account's last rank...</source>
@@ -2443,51 +2443,51 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="DialogAccountAlreadyInList" translate="yes" xml:space="preserve">
           <source>This player is already in your accounts list.</source>
-          <target state="final">Dieser Spieler ist bereits in ihrer Accountliste.</target>
+          <target state="final">Dieser Spieler ist bereits in deiner Benutzerkonto-Liste.</target>
         </trans-unit>
         <trans-unit id="DialogAddAnAccount" translate="yes" xml:space="preserve">
           <source>Add an account</source>
-          <target state="final">Füge Account hinzu</target>
+          <target state="final">Füge ein Benutzerkonto hinzu</target>
         </trans-unit>
         <trans-unit id="DialogAnalyzeAllDemosConfirmation" translate="yes" xml:space="preserve">
           <source>Do you want to analyze only the selected demos or all the demos within the selected folder?</source>
-          <target state="final">Wollen Sie nur die ausgewählten Demos oder alle Demos im Ordner analysieren?</target>
+          <target state="final">Willst du nur die ausgewählten oder alle Demos im Ordner analysieren?</target>
         </trans-unit>
         <trans-unit id="DialogBackupCreated" translate="yes" xml:space="preserve">
           <source>The backup file has been created, you can re-import it from settings.</source>
-          <target state="final">Die Backup-Datei wurde erstellt, Sie können sie nun reimporierten unter Einstellungen.</target>
+          <target state="final">Die Backup-Datei wurde erstellt, du kannst diese unter Einstellungen wieder importieren.</target>
         </trans-unit>
         <trans-unit id="DialogConfirmDeleteDemosData" translate="yes" xml:space="preserve">
           <source>Demos data will be deleted! Are you sure?</source>
-          <target state="final">Demo-Daten werden gelöscht. Sind Sie sich sicher?</target>
+          <target state="final">Daten der Demos werden gelöscht. Bist du dir sicher?</target>
         </trans-unit>
         <trans-unit id="DialogCustomDataImported" translate="yes" xml:space="preserve">
           <source>Custom data has been imported.</source>
-          <target state="final">Spezielle Daten wurden importiert.</target>
+          <target state="final">Benutzerdefinierte Daten wurden importiert.</target>
         </trans-unit>
         <trans-unit id="DialogDeleteVdmFilesConfirmation" translate="yes" xml:space="preserve">
           <source>All VDM files within your folders will be deleted, are you sure?</source>
-          <target state="final">Alle VDM Dateien in deinen Ordner werden gelöscht, sind Sie sich sicher?</target>
+          <target state="final">Alle VDM-Dateien in deinen Ordnern werden gelöscht, bist du dir sicher?</target>
         </trans-unit>
         <trans-unit id="DialogDemosDataCleared" translate="yes" xml:space="preserve">
           <source>Demos data cleared.</source>
-          <target state="final">Demos Daten gelöscht.</target>
+          <target state="final">Daten der Demos gelöscht.</target>
         </trans-unit>
         <trans-unit id="DialogEnterSteamId" translate="yes" xml:space="preserve">
           <source>Enter the SteamID 64 or the Steam community URL.</source>
-          <target state="final">Fügen Sie die SteamID 64 oder die Steam Community URL ein.</target>
+          <target state="final">Füge die SteamID 64 oder die Steam Community URL ein.</target>
         </trans-unit>
         <trans-unit id="DialogErrorCreatingBackupFile" translate="yes" xml:space="preserve">
           <source>An error occured while exporting custom data.</source>
-          <target state="final">Beim Exporieren der speziellen Daten ist ein Fehler aufgetreten.</target>
+          <target state="final">Es ist ein Fehler beim Exporieren der benutzerdefinierten Daten aufgetreten.</target>
         </trans-unit>
         <trans-unit id="DialogErrorDeletingVdmFiles" translate="yes" xml:space="preserve">
           <source>An error occured while deleting VDM files.</source>
-          <target state="final">Beim Löschen der VDM Dateien ist ein Fehler aufgetreten.</target>
+          <target state="final">Es ist ein Fehler beim Löschen der VDM-Dateien aufgetreten.</target>
         </trans-unit>
         <trans-unit id="DialogErrorImportingCustomData" translate="yes" xml:space="preserve">
           <source>An error occured while importing custom data. The backup file may be corrupt.</source>
-          <target state="final">Beim imporieren von speziellen Daten ist ein Fehler aufgetreten. Die Backup-Datei könnte beschädigt sein.</target>
+          <target state="final">Es ist ein Fehler beim Importieren der benutzerdefinierten Daten aufgetreten. Die Backup Datei könnte beschädigt sein.</target>
         </trans-unit>
         <trans-unit id="DialogErrorInvalidSteamId" translate="yes" xml:space="preserve">
           <source>Invalid SteamID 64 or Steam community URL.</source>
@@ -2495,7 +2495,7 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="DialogErrorRemovingAccount" translate="yes" xml:space="preserve">
           <source>An error occured while removing the account.</source>
-          <target state="final">Beim Löschen des Accounts ist ein Fehler aufgetreten.</target>
+          <target state="final">Es ist ein Fehler beim Entfernen des Benutzerkontos aufgetreten.</target>
         </trans-unit>
         <trans-unit id="DialogErrorWhileRetrievingPlayerInformation" translate="yes" xml:space="preserve">
           <source>Error while trying to get player information.</source>
@@ -2503,11 +2503,11 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="DialogNoErrorsFile" translate="yes" xml:space="preserve">
           <source>There is no errors log file.</source>
-          <target state="final">Es gibt keine Error log Datei.</target>
+          <target state="final">Es gibt keine Datei mit Fehlerberichten.</target>
         </trans-unit>
         <trans-unit id="DialogSelectCsgoPath" translate="yes" xml:space="preserve">
           <source>Please select the csgo.exe file location to enable it.</source>
-          <target state="final">Bitte wählen Sie den Dateipfad von csgo.exe aus, um dies zu aktivieren.</target>
+          <target state="final">Bitte gib den Dateipfad zur csgo.exe an um dies zu aktivieren.</target>
         </trans-unit>
         <trans-unit id="DialogVdmFilesDeleted" translate="yes" xml:space="preserve">
           <source>VDM files deleted.</source>
@@ -2519,11 +2519,11 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="NotificationAddingAccount" translate="yes" xml:space="preserve">
           <source>Adding account...</source>
-          <target state="final">Account hinzufügen...</target>
+          <target state="final">Benutzerkonto wird hinzugefügt...</target>
         </trans-unit>
         <trans-unit id="NotificationSyncingAccountsNickname" translate="yes" xml:space="preserve">
           <source>Syncing accounts nickname...</source>
-          <target state="final">Synchronisere Account-Nicknamen</target>
+          <target state="final">Synchronisere Spitznamen des Benutzerkontos</target>
         </trans-unit>
         <trans-unit id="PlayerPov" translate="yes" xml:space="preserve">
           <source>Player POV</source>
@@ -2535,15 +2535,15 @@ Das Spiel kann nicht gestartet werden.</target>
         </trans-unit>
         <trans-unit id="ToolTipDisplaySettings" translate="yes" xml:space="preserve">
           <source>Display settings</source>
-          <target state="final">Zeige Einstellungen an</target>
+          <target state="final">Anzeigeeinstellungen</target>
         </trans-unit>
         <trans-unit id="DialogAnalyzeRequired" translate="yes" xml:space="preserve">
           <source>You have to analyze this demo first.</source>
-          <target state="final">Sie müssen die Demo zuerst analysieren.</target>
+          <target state="final">Du musst diese Demo zuerst analysieren.</target>
         </trans-unit>
         <trans-unit id="DialogBoilerIncorrect" translate="yes" xml:space="preserve">
           <source>boiler.exe is incorrect.</source>
-          <target state="final">boiler.exe ist fehlerhaft.</target>
+          <target state="final">boiler.exe ist falsch.</target>
         </trans-unit>
         <trans-unit id="DialogBoilerNotFound" translate="yes" xml:space="preserve">
           <source>boiler.exe not found.</source>
@@ -2552,8 +2552,8 @@ Das Spiel kann nicht gestartet werden.</target>
         <trans-unit id="DialogDemosMayBeTooOld" translate="yes" xml:space="preserve">
           <source>This demos may be too old, if not please send an email with the attached demos.
 You can find more information on {0}.</source>
-          <target state="final">Diese Demos scheinen zu alt zu sein. Falls nicht, senden Sie mir bitte eine E-Mail mit der Demo.
-Mehr Informationen finden Sie unter {0}.</target>
+          <target state="final">Diese Demos sind möglicherweise zu alt, falls nicht, sende mir bitte eine E-Mail mit den Demos im Anhang.
+Du findest weitere Informationen hierzu unter {0}.</target>
         </trans-unit>
         <trans-unit id="DialogDemosNotFound" translate="yes" xml:space="preserve">
           <source>The following demos have not been found:</source>
@@ -2567,9 +2567,9 @@ Mehr Informationen finden Sie unter {0}.</target>
           <source>An error occured while analyzing the demo {0}.
 The demo may be too old, if not please send an email with the attached demo.
 You can find more information on {1}.</source>
-          <target state="final">Beim analysieren der Demo(s) ist ein Fehler aufgetreten {0}.
-Die Demo scheinen zu alt zu sein. Falls nicht, senden Sie mir bitte eine E-Mail mit der Demo.
-Mehr Informationen finden Sie unter {1}.</target>
+          <target state="final">Beim analysieren der Demo {0} ist ein Fehler.
+Die Demo ist möglicherweise zu alt, falls nicht, sende mir bitte eine E-Mail mit der Demo im Anhang.
+Du findest weitere Informationen hierzu unter {1}.</target>
         </trans-unit>
         <trans-unit id="DialogMapNotSupported" translate="yes" xml:space="preserve">
           <source>This map doesn't support this feature.</source>
@@ -2581,11 +2581,11 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="DialogNoConnexionNoFeature" translate="yes" xml:space="preserve">
           <source>No Internet connection detected, you can't use this feature.</source>
-          <target state="final">Keine Internetverbindung erkannt, Sie können diese Funktion nicht nutzen.</target>
+          <target state="final">Keine Internetverbindung erkannt, du kannst diese Funktion nicht nutzen.</target>
         </trans-unit>
         <trans-unit id="DialogPovSelection" translate="yes" xml:space="preserve">
           <source>Which POV (camera perspective) do you want to see?</source>
-          <target state="final">Welche POV (Kameraperspektive) wollen Sie sehen?</target>
+          <target state="final">Welche POV (Kameraperspektive) willst du sehen?</target>
         </trans-unit>
         <trans-unit id="EnemyPov" translate="yes" xml:space="preserve">
           <source>Enemy POV</source>
@@ -2593,7 +2593,7 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="NotificationAnalyzing" translate="yes" xml:space="preserve">
           <source>Analyzing...</source>
-          <target state="final">Analysieren...</target>
+          <target state="final">Analysiere...</target>
         </trans-unit>
         <trans-unit id="NotificationAnalyzingDemo" translate="yes" xml:space="preserve">
           <source>Analyzing demo {0}...</source>
@@ -2601,7 +2601,7 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="NotificationAnalyzingDemoForExport" translate="yes" xml:space="preserve">
           <source>Analyzing demo {0} for export...</source>
-          <target state="final">Analyisiere Demo {0} für den Exportvorgang.</target>
+          <target state="final">Analyisiere Demo {0} zum exportieren.</target>
         </trans-unit>
         <trans-unit id="Pov" translate="yes" xml:space="preserve">
           <source>POV</source>
@@ -2625,15 +2625,15 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="DialogNoPointsFound" translate="yes" xml:space="preserve">
           <source>No points found. You may have to analyze this demo.</source>
-          <target state="final">Keine Punkte gefunden. Sie sollten die Demo analysieren.</target>
+          <target state="final">Keine Punkte gefunden. Möglicherweise musst du diese Demo analysieren.</target>
         </trans-unit>
         <trans-unit id="Equipment" translate="yes" xml:space="preserve">
           <source>Equipment</source>
-          <target state="final">Equipment</target>
+          <target state="final">Ausrüstung</target>
         </trans-unit>
         <trans-unit id="HeaderToolTipKnifeKills" translate="yes" xml:space="preserve">
           <source>Knife Kills</source>
-          <target state="final">Messer Kills</target>
+          <target state="final">Messer Tötungen</target>
         </trans-unit>
         <trans-unit id="HeadshotsPercent" translate="yes" xml:space="preserve">
           <source>Headshots %</source>
@@ -2645,7 +2645,7 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="LabelSpeed" translate="yes" xml:space="preserve">
           <source>Speed</source>
-          <target state="final">Speed</target>
+          <target state="final">Geschwindigkeit</target>
         </trans-unit>
         <trans-unit id="LabelVolume" translate="yes" xml:space="preserve">
           <source>Volume</source>
@@ -2653,7 +2653,7 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="LogOnlyKills" translate="yes" xml:space="preserve">
           <source>Log only kills</source>
-          <target state="final">Nur Kills loggen</target>
+          <target state="final">Nur Kills aufzeichnen</target>
         </trans-unit>
         <trans-unit id="NotificationGeneratingData" translate="yes" xml:space="preserve">
           <source>Generating data...</source>
@@ -2665,7 +2665,7 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="NotificationPlaying" translate="yes" xml:space="preserve">
           <source>Playing...</source>
-          <target state="final">Spielt...</target>
+          <target state="final">Wiedergabe...</target>
         </trans-unit>
         <trans-unit id="Pause" translate="yes" xml:space="preserve">
           <source>Pause</source>
@@ -2673,19 +2673,19 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="Play" translate="yes" xml:space="preserve">
           <source>Play</source>
-          <target state="final">Abspielen</target>
+          <target state="final">Wiedergabe</target>
         </trans-unit>
         <trans-unit id="ShowOnlyBanned" translate="yes" xml:space="preserve">
           <source>Show only banned</source>
-          <target state="final">Zeige nur gebannte</target>
+          <target state="final">Nur gebannte anzeigen</target>
         </trans-unit>
         <trans-unit id="ShowSuspectsDemos" translate="yes" xml:space="preserve">
           <source>Show suspect(s) demos</source>
-          <target state="final">Zeige Verdächtigen Demos</target>
+          <target state="final">Zeige Demos mit Verdächtigen</target>
         </trans-unit>
         <trans-unit id="Side" translate="yes" xml:space="preserve">
           <source>Side</source>
-          <target state="needs-review-translation">Side</target>
+          <target state="final">Team</target>
         </trans-unit>
         <trans-unit id="StuffsThrown" translate="yes" xml:space="preserve">
           <source>Stuffs Thrown</source>
@@ -2697,7 +2697,7 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="ToolTipAddAllPlayersSeen" translate="yes" xml:space="preserve">
           <source>Add all players seen to list (CTRL+G)</source>
-          <target state="final">Füge alle gesehen Spieler hinzu (STRG+G)</target>
+          <target state="final">Füge alle gesehen Spieler zur Liste hinzu (STRG+G)</target>
         </trans-unit>
         <trans-unit id="ToolTipGoToSuspectProfile" translate="yes" xml:space="preserve">
           <source>Go to suspect profile (CTRL+P)</source>
@@ -2713,19 +2713,19 @@ Mehr Informationen finden Sie unter {1}.</target>
         </trans-unit>
         <trans-unit id="ToolTipPlay" translate="yes" xml:space="preserve">
           <source>Play (CTRL+P)</source>
-          <target state="final">Abspielen (STRG+P)</target>
+          <target state="final">Wiedergabe (STRG+P)</target>
         </trans-unit>
         <trans-unit id="ToolTipRefreshList" translate="yes" xml:space="preserve">
           <source>Refresh list (CTRL+R)</source>
-          <target state="final">Aktualisere Liste (STRG+R)</target>
+          <target state="final">Liste aktualisieren (STRG+R)</target>
         </trans-unit>
         <trans-unit id="ToolTipRemoveSuspect" translate="yes" xml:space="preserve">
           <source>Remove suspect(s) (DEL)</source>
-          <target state="final">Entferne Verdächtige (ENTF)</target>
+          <target state="final">Entferne Verdächtige(n) (ENTF)</target>
         </trans-unit>
         <trans-unit id="ToolTIpShowOnlySuspectDemos" translate="yes" xml:space="preserve">
           <source>Show demos that contains selected suspect(s) (CTRL+F)</source>
-          <target state="final">Zeige Demos die den ausgewählten Verdächtigen beinhalten (CTRL+F)</target>
+          <target state="final">Zeige Demos die den/die ausgewählten Verdächtige(n) beinhalten (CTRL+F)</target>
         </trans-unit>
         <trans-unit id="ToolTipWhitelist" translate="yes" xml:space="preserve">
           <source>Whitelist (CTRL+W)</source>
@@ -2750,8 +2750,8 @@ Mehr Informationen finden Sie unter {1}.</target>
         <trans-unit id="DialogCsgoNotDetected" translate="yes" xml:space="preserve">
           <source>It seems that CSGO is not installed on your main hard drive.
 The defaults "csgo" and "replays" can not be found. Please add folders from the settings.</source>
-          <target state="final">Es scheint, dass CSGO nicht auf ihrer Hauptfestplatte installiert ist.
-Die normalen Ordner "csgo" und "replays" konnten nicht gefunden werden. Bitte fügen Sie Ordner unter den Einstellungen hinzu.</target>
+          <target state="final">Es scheint, dass CSGO nicht auf deiner Hauptfestplatte installiert ist.
+Die standardisierten "csgo" und "replays" Ordner konnten nicht gefunden werden. Bitte füge die Ordner unter Einstellungen hinzu.</target>
         </trans-unit>
         <trans-unit id="DialogErrorWhileDeletingPlayer" translate="yes" xml:space="preserve">
           <source>Error while deleting player.</source>
@@ -2759,33 +2759,33 @@ Die normalen Ordner "csgo" und "replays" konnten nicht gefunden werden. Bitte f�
         </trans-unit>
         <trans-unit id="DialogErrorWhileDeletingSuspect" translate="yes" xml:space="preserve">
           <source>Error while deleting suspect.</source>
-          <target state="final">Fehler beim Löschen von Verdächtigen.</target>
+          <target state="final">Fehler beim Löschen von Verdächtigem.</target>
         </trans-unit>
         <trans-unit id="DialogErrorWhileExportingCustomData" translate="yes" xml:space="preserve">
           <source>An error occured while exporting custom data.</source>
-          <target state="final">Beim Exporieren der speziellen Daten ist ein Fehler aufgetreten.</target>
+          <target state="final">Beim Exporieren der benutzerdefinierten Daten ist ein Fehler aufgetreten.</target>
         </trans-unit>
         <trans-unit id="DialogErrorWhileMovingSuspects" translate="yes" xml:space="preserve">
           <source>Error while moving suspect(s).</source>
-          <target state="final">Fehler beim bewegen von Verdächtigen.</target>
+          <target state="final">Fehler beim verschieben von Verdächtigen.</target>
         </trans-unit>
         <trans-unit id="DialogErrorWhileRetrievingPlayersInformation" translate="yes" xml:space="preserve">
           <source>Error while trying to get players information.</source>
-          <target state="final">Fehler beim Versuch, Spieler Informationen zu erhalten.</target>
+          <target state="final">Fehler beim Versuch Spieler-Informationen zu erhalten.</target>
         </trans-unit>
         <trans-unit id="DialogErrorWhileRetrievingSuspectInformation" translate="yes" xml:space="preserve">
           <source>Error while trying to get suspect information.</source>
-          <target state="final">Fehler beim Versuch, Verdächtigen Informationen zu erhalten.</target>
+          <target state="final">Fehler beim Versuch Verdächtigen-Informationen zu erhalten.</target>
         </trans-unit>
         <trans-unit id="DialogErrorWhileRetrievingSuspectsInformation" translate="yes" xml:space="preserve">
           <source>Error while trying to get suspects information.</source>
-          <target state="final">Fehler beim Versuch, Verdächtigen Informationen zu erhalten.</target>
+          <target state="final">Fehler beim Versuch Verdächtigen-Informationen zu erhalten.</target>
         </trans-unit>
         <trans-unit id="DialogNewVersionAvailable" translate="yes" xml:space="preserve">
           <source>A new version is available.
 Do you want to download it?</source>
-          <target state="final">Eine neue Version ist verfügbar.
-Wollen Sie sie herunterladen?</target>
+          <target state="final">Eine aktuellere Version ist verfügbar.
+Willst du sie herunterladen?</target>
         </trans-unit>
         <trans-unit id="DialogNoDemosPlayerFound" translate="yes" xml:space="preserve">
           <source>No demos found for this player.
@@ -2796,32 +2796,32 @@ Demos mit diesem Spieler sind vielleicht noch nicht analysiert worden.</target>
         <trans-unit id="DialogNoDemosSuspectFound" translate="yes" xml:space="preserve">
           <source>No demos found for this suspect.
 Demos with this suspect might not have been analyzed.</source>
-          <target state="final">Keine Demos für diesen Spieler gefunden.
-Demos mit diesem Spieler sind vielleicht noch nicht analysiert worden.</target>
+          <target state="final">Keine Demos für diesen Verdächtigen gefunden.
+Demos mit diesem Verdächtigen sind vielleicht noch nicht analysiert worden.</target>
         </trans-unit>
         <trans-unit id="DialogPlayerAlreadyInSuspectWhitelist" translate="yes" xml:space="preserve">
           <source>This player is in your suspect / white / account list.
 You have to remove it from your account and white list to be able to add him in your supect list.</source>
-          <target state="final">Dieser Account ist in ihrer Liste der Verdächtigen / Whitelist / Accountliste.
-Um ihn in ihre Liste der Verdächtigen hinzuzufügen müssen sie ihn aus den anderen Listen löschen.</target>
+          <target state="final">Dieser Spieler ist in der Liste der Verdächtigen / Whitelist / Benutzerkonten.
+Um ihn in die Liste der Verdächtigen aufzunehmen muss er aus der Whitelist und den Benutzerkonten entfernt werden.</target>
         </trans-unit>
         <trans-unit id="DialogUpdateRequireClearCache" translate="yes" xml:space="preserve">
           <source>This update requires to clear custom data from cache (your suspects list will not be removed).
 Do you want to save your custom data?</source>
-          <target state="final">Dieses Update verlangt das Löschen von allen Daten aus dem Cache (Verdächtige bleiben erhalten).
-Möchten Sie Ihre benutzerdefinierten Daten speichern?</target>
+          <target state="final">Dieses Update benötigt das Leeren der benutzerdefinierten Daten aus dem Cache (Verdächtige bleiben erhalten).
+Möchtest du deine benutzerdefinierten Daten speichern?</target>
         </trans-unit>
         <trans-unit id="DialogPlayerNotFound" translate="yes" xml:space="preserve">
           <source>Player not found.</source>
-          <target state="final">Spieler konnte nicht gefunden werden.</target>
+          <target state="final">Spieler nicht gefunden.</target>
         </trans-unit>
         <trans-unit id="HeaderAccountVisibility" translate="yes" xml:space="preserve">
           <source>Account visibility</source>
-          <target state="final">Account Sichtbarkeit</target>
+          <target state="final">Sichtbarkeit des Benutzerkontos</target>
         </trans-unit>
         <trans-unit id="HeaderBanCount" translate="yes" xml:space="preserve">
           <source>Ban Count</source>
-          <target state="final">Ban Zähler</target>
+          <target state="final">Ban-Zähler</target>
         </trans-unit>
         <trans-unit id="HeaderCommunityBanned" translate="yes" xml:space="preserve">
           <source>Community Banned</source>
@@ -2833,23 +2833,23 @@ Möchten Sie Ihre benutzerdefinierten Daten speichern?</target>
         </trans-unit>
         <trans-unit id="HeaderEconomyBanned" translate="yes" xml:space="preserve">
           <source>Economy Banned</source>
-          <target state="final">Economy Banned</target>
+          <target state="final">Economy gebannet</target>
         </trans-unit>
         <trans-unit id="HeaderGameBan" translate="yes" xml:space="preserve">
           <source>Game ban</source>
-          <target state="final">Game ban</target>
+          <target state="final">Spiel-Ban</target>
         </trans-unit>
         <trans-unit id="HeaderLastConnection" translate="yes" xml:space="preserve">
           <source>Last connection</source>
-          <target state="final">Letzte Verbindung.</target>
+          <target state="final">Letzte Verbindung</target>
         </trans-unit>
         <trans-unit id="HeaderNickname" translate="yes" xml:space="preserve">
           <source>Nickname</source>
-          <target state="final">Nickname</target>
+          <target state="final">Spitzname</target>
         </trans-unit>
         <trans-unit id="HeaderProfileSetup" translate="yes" xml:space="preserve">
           <source>Profile setup</source>
-          <target state="final">Profil Einstellungen</target>
+          <target state="final">Profil-Einstellungen</target>
         </trans-unit>
         <trans-unit id="NotificationAddingPlayerToWhitelist" translate="yes" xml:space="preserve">
           <source>Adding player to whitelist...</source>
@@ -2861,11 +2861,11 @@ Möchten Sie Ihre benutzerdefinierten Daten speichern?</target>
         </trans-unit>
         <trans-unit id="NotificationMovingSuspectsToWhitelist" translate="yes" xml:space="preserve">
           <source>Moving suspect(s) to whitelist...</source>
-          <target state="final">Bewege Verdächtige(n) zur Whitelist...</target>
+          <target state="final">Verschiebe Verdächtige(n) zur Whitelist...</target>
         </trans-unit>
         <trans-unit id="NotificationPlayerAlreadyInWhitelist" translate="yes" xml:space="preserve">
           <source>Player already in your whitelist.</source>
-          <target state="final">Spieler befindet sich bereits in ihrer Whitelist.</target>
+          <target state="final">Spieler befindet sich bereits in deiner Whitelist.</target>
         </trans-unit>
         <trans-unit id="NotificationRefreshing" translate="yes" xml:space="preserve">
           <source>Refreshing...</source>
@@ -2889,43 +2889,43 @@ Möchten Sie Ihre benutzerdefinierten Daten speichern?</target>
         </trans-unit>
         <trans-unit id="DialogErrorExportingHeatmap" translate="yes" xml:space="preserve">
           <source>An error occured while exporting heatmap to PNG.</source>
-          <target state="final">Es ist ein Fehler aufgetreten beim exporieren der Heatmap als PNG.</target>
+          <target state="final">Beim exporieren der Heatmap als PNG ist ein Fehler aufgetreten.</target>
         </trans-unit>
         <trans-unit id="DialogErrorWhileAddingPlayerToSuspectsList" translate="yes" xml:space="preserve">
           <source>Error while adding player to suspects list.</source>
-          <target state="final">Fehler beim Hinzufügen von Spieler zur Liste der Verdächtigen.</target>
+          <target state="final">Fehler beim hinzufügen des Spielers zur Liste der Verdächtigen.</target>
         </trans-unit>
         <trans-unit id="DialogErrorWhileAddingPlayerToWhitelist" translate="yes" xml:space="preserve">
           <source>Error while adding player to whitelist.</source>
-          <target state="final">Fehler beim Hinzufügen von Spieler zur Whitelist.</target>
+          <target state="final">Fehler beim hinzufügen des Spielers zur Whitelist.</target>
         </trans-unit>
         <trans-unit id="DialogNoDamagesDataFound" translate="yes" xml:space="preserve">
           <source>No damages data found.
 The demo is too old or you didn't analyze it.</source>
-          <target state="final">Keine Beschädigungen gefunden. 
-Die Demo ist zu alt oder Sie haben sie noch nicht analysiert.</target>
+          <target state="final">Keine beschädigten Daten gefunden. 
+Die Demo ist zu alt oder du hast sie noch nicht analysiert.</target>
         </trans-unit>
         <trans-unit id="DialogNoDemosFoundForPlayer" translate="yes" xml:space="preserve">
           <source>No demos found for this player.
 Demos with this player might not have been analyzed.</source>
           <target state="final">Keine Demos für diesen Spieler gefunden.
-Demos mit diesem Spieler sind vielleicht noch nicht analysiert worden.</target>
+Demos mit diesem Spieler sind möglicherweise noch nicht analysiert worden.</target>
         </trans-unit>
         <trans-unit id="DialogPlayerAlreadyInAccountsList" translate="yes" xml:space="preserve">
           <source>This player is already in your account list.</source>
-          <target state="final">Dieser Spieler ist bereits in Ihrer Account Liste.</target>
+          <target state="final">Dieser Spieler ist bereits in der Liste deiner Benutzerkonten vorhanden.</target>
         </trans-unit>
         <trans-unit id="DialogPlayerAlreadyInSuspectsList" translate="yes" xml:space="preserve">
           <source>This player is already in your suspect or he is in your account list.
 You have to remove it from your account list to be able to add him in your supect list.</source>
-          <target state="final">Dieser Spieler ist bereits in ihrer Accountliste.
-Um ihn in Ihre Liste der Verdächtigen hinzuzufügen müssen Sie ihn aus der Accountliste löschen.</target>
+          <target state="final">Dieser Spieler ist bereits in der Liste deiner Verdächtigen oder Benutzerkonten.
+Du musst ihn aus der Liste deiner Benutzerkonten entfernen um ihn zu der Liste der Verdächtigen hinzuzufügen.</target>
         </trans-unit>
         <trans-unit id="DialogPlayerAlreadyInWhitelist" translate="yes" xml:space="preserve">
           <source>This player is already in your whitelist or he is in your account list.
 You have to remove it from your account list to be able to add him in your whitelist.</source>
-          <target state="final">Dieser Spieler ist bereits in ihrer Accountliste.
-Um ihn in Ihre Whitelist hinzuzufügen müssen Sie vorher aus der Accountliste löschen.</target>
+          <target state="final">Dieser Spieler ist bereits in der Liste deiner Benutzerkonten.
+Du musst ihn auf der Liste deiner Benutzerkonten entfernen um ihn zu der Whitelist hinzuzufügen.</target>
         </trans-unit>
         <trans-unit id="Light" translate="yes" xml:space="preserve">
           <source>Light</source>
@@ -2942,7 +2942,7 @@ Um ihn in Ihre Whitelist hinzuzufügen müssen Sie vorher aus der Accountliste l
         </trans-unit>
         <trans-unit id="NotificationAddingPlayerToAccountsList" translate="yes" xml:space="preserve">
           <source>Adding player to the account list...</source>
-          <target state="final">Füge Spieler zur Accountliste hinzu...</target>
+          <target state="final">Füge Spieler zur Liste der Benutzerkonten hinzu...</target>
         </trans-unit>
         <trans-unit id="NotificationAddingPlayerToSuspectsList" translate="yes" xml:space="preserve">
           <source>Adding player to suspects list...</source>
@@ -2958,7 +2958,7 @@ Um ihn in Ihre Whitelist hinzuzufügen müssen Sie vorher aus der Accountliste l
         </trans-unit>
         <trans-unit id="NotificationPlayerAddedToAccountsList" translate="yes" xml:space="preserve">
           <source>Player added to the account list.</source>
-          <target state="final">Spieler wurde zur Accountliste hinzugefügt.</target>
+          <target state="final">Spieler wurde zur Liste der Benutzerkonten hinzugefügt.</target>
         </trans-unit>
         <trans-unit id="NotificationPlayerAddedToWhitelist" translate="yes" xml:space="preserve">
           <source>Player added to whitelist.</source>

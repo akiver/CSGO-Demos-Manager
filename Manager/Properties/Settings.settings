@@ -26,6 +26,9 @@
     <Setting Name="ShowPovDemos" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="ShowPugSetupDemos" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
     <Setting Name="ShowEbotDemos" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>

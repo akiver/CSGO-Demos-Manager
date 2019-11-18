@@ -173,14 +173,14 @@
 
 				<StackPanel Orientation="Horizontal"
 							VerticalAlignment="Center"
-							Margin="5">
+							Margin="10,5,5,5">
 					<controls:ProgressRing IsActive="{Binding IsBusy}"
 										   Foreground="{DynamicResource BlackColorBrush}"
 										   Width="30"
 										   Height="30" />
 					<TextBlock Text="{Binding Notification}"
 							   Style="{StaticResource NotificationMessageStyle}"
-							   Visibility="{Binding IsBusy, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+							   Visibility="{Binding IsBusy, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="3,0,0,0"/>
 				</StackPanel>
 
 			</StackPanel>
@@ -206,6 +206,9 @@
 							<TextBlock Text="{Binding Name}"
 									   Style="{StaticResource TextBlockStandard}"
 									   Margin="5 0 0 0"/>
+                            <TextBlock Text="{Binding Team}"
+									   Style="{StaticResource TextBlockStandard}"
+									   Margin="7 0 0 0"/>
 						</StackPanel>
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>

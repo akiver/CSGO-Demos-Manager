@@ -30,6 +30,8 @@ namespace Core.Models.Source
 						return Properties.Resources.popflash;
 					case Wanmei.NAME:
 						return Properties.Resources.wanmei;
+					case PugSetup.NAME:
+						return Properties.Resources.pugsetup;
 					default:
 						return Properties.Resources.valve;
 				}
@@ -48,6 +50,8 @@ namespace Core.Models.Source
 					return new Ebot();
 				case Pov.NAME:
 					return new Pov();
+				case PugSetup.NAME:
+					return new PugSetup();
 				case Faceit.NAME:
 					return new Faceit();
 				case Cevo.NAME:
@@ -74,6 +78,7 @@ namespace Core.Models.Source
 			new Valve(),
 			new Wanmei(),
 			new Pov(),
+			new PugSetup(),
 		};
 	}
 }

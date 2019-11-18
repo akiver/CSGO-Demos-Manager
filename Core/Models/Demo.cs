@@ -411,22 +411,28 @@ namespace Core.Models
 		/// </summary>
 		private List<string> _chatMessageList;
 
-		#endregion
 
-		#region Accessors
+        /// <summary>
+        /// A flag to improve performance by disabling internal calculations (sometimes it is better to do them at the end)
+        /// </summary>
+        private bool _keepUpdated = false;
 
-		[JsonProperty("id")]
+        #endregion
+
+        #region Accessors
+
+        [JsonProperty("id")]
 		public string Id
 		{
 			get { return _id; }
-			set { Set(() => Id, ref _id, value); }
+			set { Set(ref _id, value); }
 		}
 
 		[JsonProperty("name")]
 		public string Name
 		{
 			get { return _name; }
-			set { Set(() => Name, ref _name, value); }
+			set { Set(ref _name, value); }
 		}
 
 		public string NameWithoutExtension => System.IO.Path.GetFileNameWithoutExtension(Name);
@@ -435,63 +441,63 @@ namespace Core.Models
 		public DateTime Date
 		{
 			get { return _date; }
-			set { Set(() => Date, ref _date, value); }
+			set { Set(ref _date, value); }
 		}
 
 		[JsonProperty("source")]
 		public string SourceName
 		{
 			get { return _sourceName; }
-			set { Set(() => SourceName, ref _sourceName, value); }
+			set { Set(ref _sourceName, value); }
 		}
 
 		[JsonProperty("comment")]
 		public string Comment
 		{
 			get { return _comment; }
-			set { Set(() => Comment, ref _comment, value); }
+			set { Set(ref _comment, value); }
 		}
 
 		[JsonProperty("status")]
 		public string Status
 		{
 			get { return _status; }
-			set { Set(() => Status, ref _status, value); }
+			set { Set(ref _status, value); }
 		}
 
 		[JsonProperty("client_name")]
 		public string ClientName
 		{
 			get { return _clientName; }
-			set { Set(() => ClientName, ref _clientName, value); }
+			set { Set(ref _clientName, value); }
 		}
 
 		[JsonProperty("hostname")]
 		public string Hostname
 		{
 			get { return _hostname; }
-			set { Set(() => Hostname, ref _hostname, value); }
+			set { Set(ref _hostname, value); }
 		}
 
 		[JsonProperty("type")]
 		public string Type
 		{
 			get { return _type; }
-			set { Set(() => Type, ref _type, value); }
+			set { Set(ref _type, value); }
 		}
 
 		[JsonProperty("tickrate")]
 		public float Tickrate
 		{
 			get { return _tickrate; }
-			set { Set(() => Tickrate, ref _tickrate, value); }
+			set { Set(ref _tickrate, value); }
 		}
 
 		[JsonProperty("server_tickrate")]
 		public float ServerTickrate
 		{
 			get { return _serverTickrate; }
-			set { Set(() => ServerTickrate, ref _serverTickrate, value); }
+			set { Set(ref _serverTickrate, value); }
 		}
 
 		[JsonProperty("duration")]
@@ -500,8 +506,8 @@ namespace Core.Models
 			get { return _duration; }
 			set
 			{
-				Set(() => Duration, ref _duration, value);
-				RaisePropertyChanged(() => DurationTime);
+				Set(ref _duration, value);
+				RaisePropertyChanged();
 			}
 		}
 
@@ -509,21 +515,21 @@ namespace Core.Models
 		public int Ticks
 		{
 			get { return _ticks; }
-			set { Set(() => Ticks, ref _ticks, value); }
+			set { Set(ref _ticks, value); }
 		}
 
 		[JsonProperty("map_name")]
 		public string MapName
 		{
 			get { return _mapName; }
-			set { Set(() => MapName, ref _mapName, value); }
+			set { Set(ref _mapName, value); }
 		}
 
 		[JsonProperty("path")]
 		public string Path
 		{
 			get { return _path; }
-			set { Set(() => Path, ref _path, value); }
+			set { Set(ref _path, value); }
 		}
 
 		/// <summary>
@@ -536,7 +542,7 @@ namespace Core.Models
 		public int CheaterCount
 		{
 			get { return _cheaterCounter; }
-			set { Set(() => CheaterCount, ref _cheaterCounter, value); }
+			set { Set(ref _cheaterCounter, value); }
 		}
 
 		/// <summary>
@@ -579,49 +585,49 @@ namespace Core.Models
 		public int FiveKillCount
 		{
 			get { return _fiveKillCount; }
-			set { Set(() => FiveKillCount, ref _fiveKillCount, value); }
+			set { Set(ref _fiveKillCount, value); }
 		}
 
 		[JsonProperty("4k_count")]
 		public int FourKillCount
 		{
 			get { return _fourKillCount; }
-			set { Set(() => FourKillCount, ref _fourKillCount, value); }
+			set { Set(ref _fourKillCount, value); }
 		}
 
 		[JsonProperty("3k_count")]
 		public int ThreeKillCount
 		{
 			get { return _threeKillCount; }
-			set { Set(() => ThreeKillCount, ref _threeKillCount, value); }
+			set { Set(ref _threeKillCount, value); }
 		}
 
 		[JsonProperty("2k_count")]
 		public int TwoKillCount
 		{
 			get { return _twoKillCount; }
-			set { Set(() => TwoKillCount, ref _twoKillCount, value); }
+			set { Set(ref _twoKillCount, value); }
 		}
 
 		[JsonProperty("1k_count")]
 		public int OneKillCount
 		{
 			get { return _oneKillCount; }
-			set { Set(() => OneKillCount, ref _oneKillCount, value); }
+			set { Set(ref _oneKillCount, value); }
 		}
 
 		[JsonProperty("team_ct", IsReference = false)]
 		public Team TeamCT
 		{
 			get { return _teamCt; }
-			set { Set(() => TeamCT, ref _teamCt, value); }
+			set { Set(ref _teamCt, value); }
 		}
 
 		[JsonProperty("team_t", IsReference = false)]
 		public Team TeamT
 		{
 			get { return _teamT; }
-			set { Set(() => TeamT, ref _teamT, value); }
+			set { Set(ref _teamT, value); }
 		}
 
 		[JsonProperty("team_surrender", IsReference = true)]
@@ -630,8 +636,7 @@ namespace Core.Models
 			get { return _surrender; }
 			set
 			{
-				Set(() => Surrender, ref _surrender, value);
-				RaisePropertyChanged(() => Surrender);
+				Set(ref _surrender, value);
 			}
 		}
 
@@ -639,105 +644,105 @@ namespace Core.Models
 		public Team Winner
 		{
 			get { return _winner; }
-			set { Set(() => Winner, ref _winner, value); }
+			set { Set(ref _winner, value); }
 		}
 
 		[JsonProperty("rounds", IsReference = false)]
 		public ObservableCollection<Round> Rounds
 		{
 			get { return _rounds; }
-			set { Set(() => Rounds, ref _rounds, value); }
+			set { Set(ref _rounds, value); }
 		}
 
 		[JsonProperty("players", IsReference = false)]
 		public ObservableCollection<Player> Players
 		{
 			get { return _players; }
-			set { Set(() => Players, ref _players, value); }
+			set { Set(ref _players, value); }
 		}
 
 		[JsonProperty("most_killing_weapon")]
 		public Weapon MostKillingWeapon
 		{
 			get { return _mostKillingWeapon; }
-			set { Set(() => MostKillingWeapon, ref _mostKillingWeapon, value); }
+			set { Set(ref _mostKillingWeapon, value); }
 		}
 
 		[JsonProperty("overtimes", IsReference = false)]
 		public ObservableCollection<Overtime> Overtimes
 		{
 			get { return _overtimes; }
-			set { Set(() => Overtimes, ref _overtimes, value); }
+			set { Set(ref _overtimes, value); }
 		}
 
 		[JsonProperty("most_headshot_player", IsReference = true)]
 		public Player MostHeadshotPlayer
 		{
 			get { return _mostHeadshotPlayer; }
-			set { Set(() => MostHeadshotPlayer, ref _mostHeadshotPlayer, value); }
+			set { Set(ref _mostHeadshotPlayer, value); }
 		}
 
 		[JsonProperty("most_bomb_planted_player", IsReference = true)]
 		public Player MostBombPlantedPlayer
 		{
 			get { return _mostBombPlantedPlayer; }
-			set { Set(() => MostBombPlantedPlayer, ref _mostBombPlantedPlayer, value); }
+			set { Set(ref _mostBombPlantedPlayer, value); }
 		}
 
 		[JsonProperty("most_entry_kill", IsReference = true)]
 		public Player MostEntryKillPlayer
 		{
 			get { return _mostEntryKillPlayer; }
-			set { Set(() => MostEntryKillPlayer, ref _mostEntryKillPlayer, value); }
+			set { Set(ref _mostEntryKillPlayer, value); }
 		}
 
 		[JsonProperty("bomb_planted", IsReference = false)]
 		public ObservableCollection<BombPlantedEvent> BombPlanted
 		{
 			get { return _bombPlanted; }
-			set { Set(() => BombPlanted, ref _bombPlanted, value); }
+			set { Set(ref _bombPlanted, value); }
 		}
 
 		[JsonProperty("bomb_defused", IsReference = false)]
 		public ObservableCollection<BombDefusedEvent> BombDefused
 		{
 			get { return _bombDefused; }
-			set { Set(() => BombDefused, ref _bombDefused, value); }
+			set { Set(ref _bombDefused, value); }
 		}
 
 		[JsonProperty("bomb_exploded", IsReference = false)]
 		public ObservableCollection<BombExplodedEvent> BombExploded
 		{
 			get { return _bombExploded; }
-			set { Set(() => BombExploded, ref _bombExploded, value); }
+			set { Set(ref _bombExploded, value); }
 		}
 
 		[JsonProperty("kills", IsReference = false)]
 		public ObservableCollection<KillEvent> Kills
 		{
 			get { return _kills; }
-			set { Set(() => Kills, ref _kills, value); }
+			set { Set(ref _kills, value); }
 		}
 
 		[JsonProperty("weapon_fired", IsReference = false)]
 		public ObservableCollection<WeaponFireEvent> WeaponFired
 		{
 			get { return _weaponFired; }
-			set { Set(() => WeaponFired, ref _weaponFired, value); }
+			set { Set(ref _weaponFired, value); }
 		}
 
 		[JsonProperty("player_blinded_events", IsReference = false)]
 		public ObservableCollection<PlayerBlindedEvent> PlayerBlinded
 		{
 			get { return _playerBlinded; }
-			set { Set(() => PlayerBlinded, ref _playerBlinded, value); }
+			set { Set(ref _playerBlinded, value); }
 		}
 
 		[JsonProperty("player_hurted", IsReference = false)]
 		public ObservableCollection<PlayerHurtedEvent> PlayersHurted
 		{
 			get { return _playersHurted; }
-			set { Set(() => PlayersHurted, ref _playersHurted, value); }
+			set { Set(ref _playersHurted, value); }
 		}
 
 		[JsonIgnore]
@@ -749,7 +754,7 @@ namespace Core.Models
 			get { return _source; }
 			set
 			{
-				Set(() => Source, ref _source, value);
+				Set(ref _source, value);
 				SourceName = value.Name;
 			}
 		}
@@ -758,11 +763,12 @@ namespace Core.Models
 		public string DurationTime => TimeSpan.FromSeconds(_duration).ToString(@"hh\:mm\:ss");
 
 		[JsonProperty("kill_count")]
-		public int KillCount {
+		public int KillCount
+		{
 			get { return _killCount; }
 			set
 			{
-				Set(() => KillCount, ref _killCount, value);
+				Set(ref _killCount, value);
 			}
 		}
 
@@ -770,126 +776,126 @@ namespace Core.Models
 		public int ClutchCount
 		{
 			get { return _clutchCount; }
-			set { Set(() => ClutchCount, ref _clutchCount, value); }
+			set { Set(ref _clutchCount, value); }
 		}
 
 		[JsonProperty("trade_kill_count")]
 		public int TradeKillCount
 		{
 			get { return _tradeKillCount; }
-			set { Set(() => TradeKillCount, ref _tradeKillCount, value); }
+			set { Set(ref _tradeKillCount, value); }
 		}
 
 		[JsonProperty("bomb_defused_count")]
 		public int BombDefusedCount
 		{
 			get { return _bombDefusedCount; }
-			set { Set(() => BombDefusedCount, ref _bombDefusedCount, value); }
+			set { Set(ref _bombDefusedCount, value); }
 		}
 
 		[JsonProperty("bomb_planted_count")]
 		public int BombPlantedCount
 		{
 			get { return _bombPlantedCount; }
-			set { Set(() => BombPlantedCount, ref _bombPlantedCount, value); }
+			set { Set(ref _bombPlantedCount, value); }
 		}
 
 		[JsonProperty("bomb_exploded_count")]
 		public int BombExplodedCount
 		{
 			get { return _bombExplodedCount; }
-			set { Set(() => BombExplodedCount, ref _bombExplodedCount, value); }
+			set { Set(ref _bombExplodedCount, value); }
 		}
 
 		[JsonProperty("flashbang_thrown_count")]
 		public int FlashbangThrownCount
 		{
 			get { return _flashbangThrownCount; }
-			set { Set(() => FlashbangThrownCount, ref _flashbangThrownCount, value); }
+			set { Set(ref _flashbangThrownCount, value); }
 		}
 
 		[JsonProperty("smoke_thrown_count")]
 		public int SmokeThrownCount
 		{
 			get { return _smokeThrownCount; }
-			set { Set(() => SmokeThrownCount, ref _smokeThrownCount, value); }
+			set { Set(ref _smokeThrownCount, value); }
 		}
 
 		[JsonProperty("he_thrown_count")]
 		public int HeThrownCount
 		{
 			get { return _heThrownCount; }
-			set { Set(() => HeThrownCount, ref _heThrownCount, value); }
+			set { Set(ref _heThrownCount, value); }
 		}
 
 		[JsonProperty("decoy_thrown_count")]
 		public int DecoyThrownCount
 		{
 			get { return _decoyThrownCount; }
-			set { Set(() => DecoyThrownCount, ref _decoyThrownCount, value); }
+			set { Set(ref _decoyThrownCount, value); }
 		}
 
 		[JsonProperty("molotov_thrown_count")]
 		public int MolotovThrownCount
 		{
 			get { return _molotovThrownCount; }
-			set { Set(() => MolotovThrownCount, ref _molotovThrownCount, value); }
+			set { Set(ref _molotovThrownCount, value); }
 		}
 
 		[JsonProperty("incendiary_thrown_count")]
 		public int IncendiaryThrownCount
 		{
 			get { return _incendiaryThrownCount; }
-			set { Set(() => IncendiaryThrownCount, ref _incendiaryThrownCount, value); }
+			set { Set(ref _incendiaryThrownCount, value); }
 		}
 
 		[JsonIgnore]
 		public string WinStatus
 		{
 			get { return _winStatus; }
-			set { Set(() => WinStatus, ref _winStatus, value); }
+			set { Set(ref _winStatus, value); }
 		}
 
 		[JsonIgnore]
 		public ObservableCollection<PositionPoint> PositionPoints
 		{
 			get { return _positionPoints; }
-			set { Set(() => PositionPoints, ref _positionPoints, value); }
+			set { Set(ref _positionPoints, value); }
 		}
 
 		[JsonProperty("decoys")]
 		public ObservableCollection<DecoyStartedEvent> DecoyStarted
 		{
 			get { return _decoysStarted; }
-			set { Set(() => DecoyStarted, ref _decoysStarted, value); }
+			set { Set(ref _decoysStarted, value); }
 		}
 
 		[JsonProperty("incendiaries")]
 		public ObservableCollection<MolotovFireStartedEvent> IncendiariesFireStarted
 		{
 			get { return _incendiariesFireStarted; }
-			set { Set(() => IncendiariesFireStarted, ref _incendiariesFireStarted, value); }
+			set { Set(ref _incendiariesFireStarted, value); }
 		}
 
 		[JsonProperty("molotovs")]
 		public ObservableCollection<MolotovFireStartedEvent> MolotovsFireStarted
 		{
 			get { return _molotovsFireStarted; }
-			set { Set(() => MolotovsFireStarted, ref _molotovsFireStarted, value); }
+			set { Set(ref _molotovsFireStarted, value); }
 		}
 
 		[JsonProperty("damage_health_count")]
 		public int DamageHealthCount
 		{
 			get { return _damageHealthCount; }
-			set { Set(() => DamageHealthCount, ref _damageHealthCount, value); }
+			set { Set(ref _damageHealthCount, value); }
 		}
 
 		[JsonProperty("damage_armor_count")]
 		public int DamageArmorCount
 		{
 			get { return _damageArmorCount; }
-			set { Set(() => DamageArmorCount, ref _damageArmorCount, value); }
+			set { Set(ref _damageArmorCount, value); }
 		}
 
 		[JsonIgnore]
@@ -915,147 +921,147 @@ namespace Core.Models
 		public double AverageHealthDamage
 		{
 			get { return _averageHealthDamage; }
-			set { Set(() => AverageHealthDamage, ref _averageHealthDamage, value); }
+			set { Set(ref _averageHealthDamage, value); }
 		}
 
 		[JsonProperty("kill_per_round")]
 		public double KillPerRound
 		{
 			get { return _killPerRound; }
-			set { Set(() => KillPerRound, ref _killPerRound, value); }
+			set { Set(ref _killPerRound, value); }
 		}
 
 		[JsonProperty("assist_per_round")]
 		public double AssistPerRound
 		{
 			get { return _assistPerRound; }
-			set { Set(() => AssistPerRound, ref _assistPerRound, value); }
+			set { Set(ref _assistPerRound, value); }
 		}
 
 		[JsonProperty("jump_kill_count")]
 		public int JumpKillCount
 		{
 			get { return _jumpKillCount; }
-			set { Set(() => JumpKillCount, ref _jumpKillCount, value); }
+			set { Set(ref _jumpKillCount, value); }
 		}
 
 		[JsonProperty("crouch_kill_count")]
 		public int CrouchKillCount
 		{
 			get { return _crouchKillCount; }
-			set { Set(() => CrouchKillCount, ref _crouchKillCount, value); }
+			set { Set(ref _crouchKillCount, value); }
 		}
 
 		[JsonProperty("headshot_count")]
 		public int HeadshotCount
 		{
 			get { return _headshotCount; }
-			set { Set(() => HeadshotCount, ref _headshotCount, value); }
+			set { Set(ref _headshotCount, value); }
 		}
 
 		[JsonProperty("death_count")]
 		public int DeathCount
 		{
 			get { return _deathCount; }
-			set { Set(() => DeathCount, ref _deathCount, value); }
+			set { Set(ref _deathCount, value); }
 		}
 
 		[JsonProperty("assist_count")]
 		public int AssistCount
 		{
 			get { return _assistCount; }
-			set { Set(() => AssistCount, ref _assistCount, value); }
+			set { Set(ref _assistCount, value); }
 		}
 
 		[JsonProperty("entry_kill_count")]
 		public int EntryKillCount
 		{
 			get { return _entryKillCount; }
-			set { Set(() => EntryKillCount, ref _entryKillCount, value); }
+			set { Set(ref _entryKillCount, value); }
 		}
 
 		[JsonProperty("knife_kill_count")]
 		public int KnifeKillCount
 		{
 			get { return _knifeKillCount; }
-			set { Set(() => KnifeKillCount, ref _knifeKillCount, value); }
+			set { Set(ref _knifeKillCount, value); }
 		}
 
 		[JsonProperty("mvp_count")]
 		public int MvpCount
 		{
 			get { return _mvpCount; }
-			set { Set(() => MvpCount, ref _mvpCount, value); }
+			set { Set(ref _mvpCount, value); }
 		}
 
 		[JsonProperty("teamkill_count")]
 		public int TeamKillCount
 		{
 			get { return _teamKillCount; }
-			set { Set(() => TeamKillCount, ref _teamKillCount, value); }
+			set { Set(ref _teamKillCount, value); }
 		}
 
 		[JsonProperty("death_per_round")]
 		public double DeathPerRound
 		{
 			get { return _deathPerRound; }
-			set { Set(() => DeathPerRound, ref _deathPerRound, value); }
+			set { Set(ref _deathPerRound, value); }
 		}
 
 		[JsonProperty("clutch_lost_count")]
 		public int ClutchLostCount
 		{
 			get { return _clutchLostCount; }
-			set { Set(() => ClutchLostCount, ref _clutchLostCount, value); }
+			set { Set(ref _clutchLostCount, value); }
 		}
 
 		[JsonProperty("clutch_won_count")]
 		public int ClutchWonCount
 		{
 			get { return _clutchWonCount; }
-			set { Set(() => ClutchWonCount, ref _clutchWonCount, value); }
+			set { Set(ref _clutchWonCount, value); }
 		}
 
 		[JsonProperty("shot_count")]
 		public int WeaponFiredCount
 		{
 			get { return _weaponFiredCount; }
-			set { Set(() => WeaponFiredCount, ref _weaponFiredCount, value); }
+			set { Set(ref _weaponFiredCount, value); }
 		}
 
 		[JsonProperty("hit_count")]
 		public int HitCount
 		{
 			get { return _hitCount; }
-			set { Set(() => HitCount, ref _hitCount, value); }
+			set { Set(ref _hitCount, value); }
 		}
 
 		[JsonProperty("average_hltv_rating")]
 		public float AverageHltvRating
 		{
 			get { return _averageHltvRating; }
-			set { Set(() => AverageHltvRating, ref _averageHltvRating, value); }
+			set { Set(ref _averageHltvRating, value); }
 		}
 
 		[JsonProperty("average_esea_rws")]
 		public decimal AverageEseaRws
 		{
 			get { return _averageEseaRws; }
-			set { Set(() => AverageEseaRws, ref _averageEseaRws, value); }
+			set { Set(ref _averageEseaRws, value); }
 		}
 
 		[JsonProperty("chat_messages")]
 		public List<string> ChatMessageList
 		{
 			get { return _chatMessageList; }
-			set { Set(() => ChatMessageList, ref _chatMessageList, value); }
+			set { Set(ref _chatMessageList, value); }
 		}
 
 		#endregion
 
 		public Demo()
 		{
-			Kills =new ObservableCollection<KillEvent>();
+			Kills = new ObservableCollection<KillEvent>();
 			Players = new ObservableCollection<Player>();
 			Rounds = new ObservableCollection<Round>();
 			MolotovsFireStarted = new ObservableCollection<MolotovFireStartedEvent>();
@@ -1081,14 +1087,31 @@ namespace Core.Models
 				Name = "Team 2",
 				CurrentSide = Side.Terrorist,
 			};
-			Kills.CollectionChanged += OnKillsCollectionChanged;
-			BombExploded.CollectionChanged += OnBombExplodedCollectionChanged;
-			BombDefused.CollectionChanged += OnBombDefusedCollectionChanged;
-			BombPlanted.CollectionChanged += OnBombPlantedCollectionChanged;
-			Rounds.CollectionChanged += OnRoundsCollectionChanged;
-			PlayersHurted.CollectionChanged += OnPlayersHurtedCollectionChanged;
-			WeaponFired.CollectionChanged += OnWeaponFireCollectionChanged;
 		}
+
+        public void EnableUpdates()
+        {
+            if (_keepUpdated)
+            {
+                return;
+            }
+
+            Kills.CollectionChanged += OnKillsCollectionChanged;
+            BombExploded.CollectionChanged += OnBombExplodedCollectionChanged;
+            BombDefused.CollectionChanged += OnBombDefusedCollectionChanged;
+            BombPlanted.CollectionChanged += OnBombPlantedCollectionChanged;
+            Rounds.CollectionChanged += OnRoundsCollectionChanged;
+            PlayersHurted.CollectionChanged += OnPlayersHurtedCollectionChanged;
+            WeaponFired.CollectionChanged += OnWeaponFireCollectionChanged;
+            _keepUpdated = true;
+            OnBombDefusedCollectionChanged(null, null);
+            OnBombExplodedCollectionChanged(null, null);
+            OnBombPlantedCollectionChanged(null, null);
+            OnKillsCollectionChanged(null, null);
+            OnPlayersHurtedCollectionChanged(null, null);
+            OnRoundsCollectionChanged(null, null);
+            OnWeaponFireCollectionChanged(null, null);
+        }
 
 		public override bool Equals(object obj)
 		{
@@ -1217,6 +1240,7 @@ namespace Core.Models
 			foreach (WeaponFireEvent e in WeaponFired)
 				demo.WeaponFired.Add(e);
 
+            demo.EnableUpdates();
 			return demo;
 		}
 
@@ -1404,12 +1428,12 @@ namespace Core.Models
 
 		public void RaiseScoresChanged()
 		{
-			RaisePropertyChanged(() => ScoreTeamT);
-			RaisePropertyChanged(() => ScoreTeamCt);
-			RaisePropertyChanged(() => ScoreFirstHalfTeamCt);
-			RaisePropertyChanged(() => ScoreFirstHalfTeamT);
-			RaisePropertyChanged(() => ScoreSecondHalfTeamCt);
-			RaisePropertyChanged(() => ScoreSecondHalfTeamT);
+			RaisePropertyChanged(nameof(ScoreTeamT));
+			RaisePropertyChanged(nameof(ScoreTeamCt));
+			RaisePropertyChanged(nameof(ScoreFirstHalfTeamCt));
+			RaisePropertyChanged(nameof(ScoreFirstHalfTeamT));
+			RaisePropertyChanged(nameof(ScoreSecondHalfTeamCt));
+			RaisePropertyChanged(nameof(ScoreSecondHalfTeamT));
 		}
 
 		#region Handler collections changed
@@ -1445,8 +1469,8 @@ namespace Core.Models
 
 		private void OnRoundsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => MostDamageWeapon);
-			RaisePropertyChanged(() => WinStatus);
+			RaisePropertyChanged(nameof(MostDamageWeapon));
+			RaisePropertyChanged(nameof(WinStatus));
 
 			ClutchWonCount = Players.Sum(p => p.ClutchWonCount);
 			ClutchCount = Players.Sum(p => p.ClutchCount);

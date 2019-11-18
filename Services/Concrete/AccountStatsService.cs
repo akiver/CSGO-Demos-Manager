@@ -195,13 +195,13 @@ namespace Services.Concrete
 							stats.CacheWinPercentage = Math.Round((stats.CacheWinCount / (double)matchCount * 100), 2);
 						}
 
-						stats.CobblestoneWinCount = demosPlayerList.Count(d => d.MapName == "de_cbble" && (GetWinStatusCode(d, SelectedStatsAccountSteamId) == 1 || GetWinStatusCode(d, SelectedStatsAccountSteamId) == 2));
-						stats.CobblestoneLossCount = demosPlayerList.Count(d => d.MapName == "de_cbble" && (GetWinStatusCode(d, SelectedStatsAccountSteamId) == -1 || GetWinStatusCode(d, SelectedStatsAccountSteamId) == -2));
-						stats.CobblestoneDrawCount = demosPlayerList.Count(d => d.MapName == "de_cbble" && GetWinStatusCode(d, SelectedStatsAccountSteamId) == 0);
-						matchCount = stats.CobblestoneWinCount + stats.CobblestoneLossCount + stats.CobblestoneDrawCount;
+						stats.VertigoWinCount = demosPlayerList.Count(d => d.MapName == "de_vertigo" && (GetWinStatusCode(d, SelectedStatsAccountSteamId) == 1 || GetWinStatusCode(d, SelectedStatsAccountSteamId) == 2));
+						stats.VertigoLossCount = demosPlayerList.Count(d => d.MapName == "de_vertigo" && (GetWinStatusCode(d, SelectedStatsAccountSteamId) == -1 || GetWinStatusCode(d, SelectedStatsAccountSteamId) == -2));
+						stats.VertigoDrawCount = demosPlayerList.Count(d => d.MapName == "de_vertigo" && GetWinStatusCode(d, SelectedStatsAccountSteamId) == 0);
+						matchCount = stats.VertigoWinCount + stats.VertigoLossCount + stats.VertigoDrawCount;
 						if (matchCount > 0)
 						{
-							stats.CobblestoneWinPercentage = Math.Round((stats.CobblestoneWinCount / (double)matchCount * 100), 2);
+							stats.VertigoWinPercentage = Math.Round((stats.VertigoWinCount / (double)matchCount * 100), 2);
 						}
 
 						stats.VertigoWinCount = demosPlayerList.Count(d => d.MapName == "de_vertigo" && (GetWinStatusCode(d, SelectedStatsAccountSteamId) == 1 || GetWinStatusCode(d, SelectedStatsAccountSteamId) == 2));

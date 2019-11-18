@@ -11,7 +11,7 @@ using Player = Core.Models.Player;
 
 namespace Services.Concrete.Analyzer
 {
-	public class ValveAnalyzer : DemoAnalyzer
+	public class PugSetupAnalyzer : DemoAnalyzer
 	{
 		/// <summary>
 		/// Used to detect forced pauses during a round.
@@ -19,11 +19,11 @@ namespace Services.Concrete.Analyzer
 		/// We don't want to pause the game when only one player killed himself (it can happened).
 		/// We track hw many suicides happened in a row.
 		/// </summary>
-		private int _suicideCount;
+		private bool _matchStarted = false;
 
 		private bool _isRoundFinal = false;
 
-		public ValveAnalyzer(Demo demo)
+		public PugSetupAnalyzer(Demo demo)
 		{
 			Parser = new DemoParser(File.OpenRead(demo.Path));
 			// Reset to have update on UI
@@ -124,31 +124,26 @@ namespace Services.Concrete.Analyzer
 		{
 			if (!IsMatchStarted) return;
 
-			_suicideCount = 0;
 			IsLastRoundHalf = false;
 			// Check players count to prevent missing players who was connected after the match started event
-			if (Demo.Players.Count < 10)
+			foreach (DemoInfo.Player player in Parser.PlayingParticipants)
 			{
-				// Add all players to our ObservableCollection of PlayerExtended
-				foreach (DemoInfo.Player player in Parser.PlayingParticipants)
+				// don't add bot and already known players
+				if (player.SteamID != 0 && Demo.Players.FirstOrDefault(p => p.SteamId == player.SteamID) == null)
 				{
-					// don't add bot and already known players
-					if (player.SteamID != 0 && Demo.Players.FirstOrDefault(p => p.SteamId == player.SteamID) == null)
+					Player pl = new Player
 					{
-						Player pl = new Player
-						{
-							SteamId = player.SteamID,
-							Name = player.Name,
-							Side = player.Team.ToSide()
-						};
-						Application.Current.Dispatcher.Invoke(delegate
-						{
-							Demo.Players.Add(pl);
-							pl.TeamName = pl.Side == Side.CounterTerrorist ? Demo.TeamCT.Name : Demo.TeamT.Name;
-						});
+						SteamId = player.SteamID,
+						Name = player.Name,
+						Side = player.Team.ToSide()
+					};
+					Application.Current.Dispatcher.Invoke(delegate
+					{
+						Demo.Players.Add(pl);
+						pl.TeamName = pl.Side == Side.CounterTerrorist ? Demo.TeamCT.Name : Demo.TeamT.Name;
+					});
 
-                        pl.EnableUpdates();
-					}
+                    pl.EnableUpdates();
 				}
 			}
 
@@ -164,7 +159,10 @@ namespace Services.Concrete.Analyzer
 			if (IsLastRoundHalf)
 			{
 				SwapTeams();
-				Application.Current.Dispatcher.Invoke(() => Demo.Rounds.Add(CurrentRound));
+				Application.Current.Dispatcher.Invoke(() => {
+					CurrentRound.Number = Demo.Rounds.Count + 1;
+					Demo.Rounds.Add(CurrentRound);
+				});
 			}
 
 			if (IsOvertime && IsLastRoundHalf) IsHalfMatch = false;
@@ -172,7 +170,57 @@ namespace Services.Concrete.Analyzer
 
 		protected new void HandleRoundOfficiallyEnd(object sender, RoundOfficiallyEndedEventArgs e)
 		{
-			base.HandleRoundOfficiallyEnd(sender, e);
+			if (!IsMatchStarted || IsFreezetime) return;
+
+			CurrentRound.EndTickOfficially = Parser.IngameTick;
+			CurrentRound.Duration = (float)Math.Round((CurrentRound.EndTickOfficially - CurrentRound.Tick) / Demo.ServerTickrate, 2);
+
+			// sometimes round_end isn't triggered, I update scores here
+			if (!IsRoundEndOccured)
+			{
+				Core.Models.Team teamCt = GetTeamBySide(Side.CounterTerrorist);
+				if (teamCt.Score < Parser.CTScore)
+				{
+					UpdateTeamScore(new RoundEndedEventArgs
+					{
+						Winner = DemoInfo.Team.CounterTerrorist
+					});
+				}
+				else
+				{
+					UpdateTeamScore(new RoundEndedEventArgs
+					{
+						Winner = DemoInfo.Team.Terrorist
+					});
+				}
+			}
+
+			CheckForSpecialClutchEnd();
+			UpdateKillsCount();
+			UpdatePlayerScore();
+
+			if (!IsLastRoundHalf || !IsRoundEndOccured)
+			{
+				Application.Current.Dispatcher.Invoke(() => {
+					CurrentRound.Number = Demo.Rounds.Count + 1;
+					Demo.Rounds.Add(CurrentRound);
+				});
+			}
+
+			if (!IsOvertime && IsLastRoundHalf)
+			{
+				IsLastRoundHalf = false;
+				IsHalfMatch = true;
+			}
+
+			if (IsSwapTeamRequired)
+			{
+				SwapTeams();
+				IsSwapTeamRequired = false;
+				if (IsOvertime) IsHalfMatch = !IsHalfMatch;
+			}
+
+			Demo.RaiseScoresChanged();
 
 			if (!IsMatchStarted || IsFreezetime) return;
 
@@ -240,17 +288,6 @@ namespace Services.Concrete.Analyzer
 						killer.RoundsMoneyEarned[CurrentRound.Number] = weapon.KillAward;
 					else
 						killer.RoundsMoneyEarned[CurrentRound.Number] += weapon.KillAward;
-				}
-				else
-				{
-					// Player suicide, hack to detect pause forced during a match
-					// Happended during the match SK vs VP on train during Atlanta 2017
-					// All players are killed and the game is paused (freeze time)
-					if (++_suicideCount == 6)
-					{
-						BackupToLastRound();
-					}
-					return;
 				}
 
 				killEvent.KillerTeam = killer.TeamName;
@@ -361,13 +398,32 @@ namespace Services.Concrete.Analyzer
 			if (player == null) return;
 			player.IsConnected = true;
 			player.Side = e.NewTeam.ToSide();
+
+
+
+
+			Console.Write("adding player ");
+			Console.Write(player.Name + " ");
+			Console.WriteLine(player.Side == Side.CounterTerrorist ? "CT" : "T");
+			Console.WriteLine(Demo.TeamCT.Players.Contains(player) ? "inCT" : Demo.TeamT.Players.Contains(player) ? "inT" : "None");
+
 			// add the player to his team if he is not
 			if (!Demo.TeamCT.Players.Contains(player) && !Demo.TeamT.Players.Contains(player))
 			{
-				if (Demo.TeamCT.Players.Count > Demo.TeamT.Players.Count)
-					Application.Current.Dispatcher.Invoke(() => Demo.TeamT.Players.Add(player));
-				else
-					Application.Current.Dispatcher.Invoke(() => Demo.TeamCT.Players.Add(player));
+				Application.Current.Dispatcher.Invoke(() =>
+				{
+					if (player.Side == Demo.TeamCT.CurrentSide && !Demo.TeamCT.Players.Contains(player))
+					{
+						Demo.TeamCT.Players.Add(player);
+						player.TeamName = Demo.TeamCT.Name;
+					}
+
+					if (player.Side == Demo.TeamT.CurrentSide && !Demo.TeamT.Players.Contains(player))
+					{
+						Demo.TeamT.Players.Add(player);
+						player.TeamName = Demo.TeamT.Name;
+					}
+				});
 			}
 		}
 
@@ -378,50 +434,13 @@ namespace Services.Concrete.Analyzer
 		private void StartMatch()
 		{
 			Application.Current.Dispatcher.Invoke(() => Demo.Rounds.Clear());
-			IsMatchStarted = true;
 
+			IsMatchStarted = true;
 			if (!string.IsNullOrWhiteSpace(Parser.CTClanName)) Demo.TeamCT.Name = Parser.CTClanName;
 			if (!string.IsNullOrWhiteSpace(Parser.TClanName)) Demo.TeamT.Name = Parser.TClanName;
 			Demo.TeamCT.CurrentSide = Side.CounterTerrorist;
 			Demo.TeamT.CurrentSide = Side.Terrorist;
-
-			// Add all players to our ObservableCollection of PlayerExtended
-			foreach (DemoInfo.Player player in Parser.PlayingParticipants)
-			{
-				// don't add bot
-				if (player.SteamID != 0)
-				{
-					Player pl = new Player
-					{
-						SteamId = player.SteamID,
-						Name = player.Name,
-						Side = player.Team.ToSide()
-					};
-					if (!Demo.Players.Contains(pl))
-					{
-						Application.Current.Dispatcher.Invoke(delegate
-						{
-							Demo.Players.Add(pl);
-							if (pl.Side == Side.CounterTerrorist && !Demo.TeamCT.Players.Contains(pl))
-							{
-								Demo.TeamCT.Players.Add(pl);
-								pl.TeamName = Demo.TeamCT.Name;
-							}
-
-							if (pl.Side == Side.Terrorist && !Demo.TeamT.Players.Contains(pl))
-							{
-								Demo.TeamT.Players.Add(pl);
-								pl.TeamName = Demo.TeamT.Name;
-							}
-						});
-					}
-
-                    pl.EnableUpdates();
-				}
-			}
-
-			// First round handled here because round_start is raised before begin_new_match
-			CreateNewRound();
+			
 		}
 
 		#endregion

@@ -98,6 +98,7 @@
     <Compile Include="Concrete\Analyzer\DemoAnalyzer.cs" />
     <Compile Include="Concrete\Analyzer\EbotAnalyzer.cs" />
     <Compile Include="Concrete\Analyzer\EseaAnalyzer.cs" />
+    <Compile Include="Concrete\Analyzer\PugSetupAnalyzer.cs" />
     <Compile Include="Concrete\Analyzer\ValveAnalyzer.cs" />
     <Compile Include="Concrete\CacheService.cs" />
     <Compile Include="Concrete\DamageService.cs" />

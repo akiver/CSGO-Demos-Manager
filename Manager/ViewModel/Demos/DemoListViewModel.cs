@@ -189,6 +189,8 @@ namespace Manager.ViewModel.Demos
 
 		public bool IsShowPovDemos => Properties.Settings.Default.ShowPovDemos;
 
+		public bool IsShowPugSetupDemos => Properties.Settings.Default.ShowPugSetupDemos;
+
 		public bool IsShowEbotDemos => Properties.Settings.Default.ShowEbotDemos;
 
 		public bool IsShowFaceitDemos => Properties.Settings.Default.ShowFaceitDemos;
@@ -305,6 +307,9 @@ namespace Manager.ViewModel.Demos
 
 				// POV filter
 				if (!IsShowPovDemos && data.SourceName == Pov.NAME) return false;
+
+				// PugSetup filter
+				if (!IsShowPugSetupDemos && data.SourceName == PugSetup.NAME) return false;
 
 				// eBot filter
 				if (!IsShowEbotDemos && data.SourceName == Ebot.NAME) return false;
@@ -1410,6 +1415,7 @@ namespace Manager.ViewModel.Demos
 					{Esea.NAME, "ESEA"},
 					{PopFlash.NAME, "Popflash"},
 					{Pov.NAME, "POV"},
+					{PugSetup.NAME, "PugSetup"},
 					{DemoStatus.NAME_DEMO_STATUS_ERROR, Properties.Resources.NoAnalyzableDemos}
 				};
 
@@ -1440,6 +1446,10 @@ namespace Manager.ViewModel.Demos
 			if (Properties.Settings.Default.ShowPovDemos)
 			{
 				_demoSourcesSelected.Add(Pov.NAME, "POV");
+			}
+			if (Properties.Settings.Default.ShowPugSetupDemos)
+			{
+				_demoSourcesSelected.Add(PugSetup.NAME, "PugSetup");
 			}
 			if (Properties.Settings.Default.ShowOldDemos)
 			{
@@ -1497,6 +1507,9 @@ namespace Manager.ViewModel.Demos
 					break;
 				case Pov.NAME:
 					Properties.Settings.Default.ShowPovDemos = items.ContainsKey(name);
+					break;
+				case PugSetup.NAME:
+					Properties.Settings.Default.ShowPugSetupDemos = items.ContainsKey(name);
 					break;
 				case DemoStatus.NAME_DEMO_STATUS_ERROR:
 					Properties.Settings.Default.ShowOldDemos = items.ContainsKey(name);

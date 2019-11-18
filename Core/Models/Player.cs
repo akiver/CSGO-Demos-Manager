@@ -317,23 +317,28 @@ namespace Core.Models
 		/// </summary>
 		private ObservableCollection<ClutchEvent> _clutches;
 
-		#endregion
+        /// <summary>
+        /// A flag to improve performance by disabling internal calculations (sometimes it is better to do them at the end)
+        /// </summary>
+        private bool _keepUpdated = false;
 
-		#region Accessors
+        #endregion
 
-		[JsonProperty("steamid")]
+        #region Accessors
+
+        [JsonProperty("steamid")]
 		[JsonConverter(typeof(LongToStringConverter))]
 		public long SteamId
 		{
 			get { return _steamId; }
-			set { Set(() => SteamId, ref _steamId, value); }
+			set { Set(ref _steamId, value); }
 		}
 
 		[JsonProperty("name")]
 		public string Name
 		{
 			get { return _name; }
-			set { Set(() => Name, ref _name, value); }
+			set { Set(ref _name, value); }
 		}
 
 		[JsonProperty("kill_count")]
@@ -342,8 +347,8 @@ namespace Core.Models
 			get { return _killCount; }
 			set
 			{
-				RaisePropertyChanged(() => KillDeathRatio);
-				Set(() => KillCount, ref _killCount, value);
+				Set(ref _killCount, value);
+				RaisePropertyChanged(nameof(KillDeathRatio));
 			}
 		}
 
@@ -351,28 +356,28 @@ namespace Core.Models
 		public int CrouchKillCount
 		{
 			get { return _crouchKillCount; }
-			set { Set(() => CrouchKillCount, ref _crouchKillCount, value); }
+			set { Set(ref _crouchKillCount, value); }
 		}
 
 		[JsonProperty("jump_kill_count")]
 		public int JumpKillCount
 		{
 			get { return _jumpKillCount; }
-			set { Set(() => JumpKillCount, ref _jumpKillCount, value); }
+			set { Set(ref _jumpKillCount, value); }
 		}
 
 		[JsonProperty("score")]
 		public int Score
 		{
 			get { return _score; }
-			set { Set(() => Score, ref _score, value); }
+			set { Set(ref _score, value); }
 		}
 
 		[JsonProperty("tk_count")]
 		public int TeamKillCount
 		{
 			get { return _teamKillCount; }
-			set { Set(() => TeamKillCount, ref _teamKillCount, value); }
+			set { Set(ref _teamKillCount, value); }
 		}
 
 		[JsonProperty("assist_count")]
@@ -381,8 +386,8 @@ namespace Core.Models
 			get { return _assistCount; }
 			set
 			{
-				Set(() => AssistCount, ref _assistCount, value);
-				RaisePropertyChanged(() => AssistPerRound);
+				Set(ref _assistCount, value);
+				RaisePropertyChanged(nameof(AssistPerRound));
 			}
 		}
 
@@ -390,35 +395,35 @@ namespace Core.Models
 		public int TradeKillCount
 		{
 			get { return _tradeKillCount; }
-			set { Set(() => TradeKillCount, ref _tradeKillCount, value); }
+			set { Set(ref _tradeKillCount, value); }
 		}
 
 		[JsonProperty("trade_death_count")]
 		public int TradeDeathCount
 		{
 			get { return _tradeDeathCount; }
-			set { Set(() => TradeDeathCount, ref _tradeDeathCount, value); }
+			set { Set(ref _tradeDeathCount, value); }
 		}
 
 		[JsonProperty("bomb_planted_count")]
 		public int BombPlantedCount
 		{
 			get { return _bombPlantedCount; }
-			set { Set(() => BombPlantedCount, ref _bombPlantedCount, value); }
+			set { Set(ref _bombPlantedCount, value); }
 		}
 
 		[JsonProperty("bomb_defused_count")]
 		public int BombDefusedCount
 		{
 			get { return _bombDefusedCount; }
-			set { Set(() => BombDefusedCount, ref _bombDefusedCount, value); }
+			set { Set(ref _bombDefusedCount, value); }
 		}
 
 		[JsonProperty("bomb_exploded_count")]
 		public int BombExplodedCount
 		{
 			get { return _bombExplodedCount; }
-			set { Set(() => BombExplodedCount, ref _bombExplodedCount, value); }
+			set { Set(ref _bombExplodedCount, value); }
 		}
 
 		[JsonProperty("death_count")]
@@ -427,8 +432,8 @@ namespace Core.Models
 			get { return _deathCount; }
 			set
 			{
-				RaisePropertyChanged(() => KillDeathRatio);
-				Set(() => DeathCount, ref _deathCount, value);
+				Set(ref _deathCount, value);
+				RaisePropertyChanged(nameof(KillDeathRatio));
 			}
 		}
 
@@ -436,35 +441,35 @@ namespace Core.Models
 		public int FiveKillCount
 		{
 			get { return _fiveKillCount; }
-			set { Set(() => FiveKillCount, ref _fiveKillCount, value); }
+			set { Set(ref _fiveKillCount, value); }
 		}
 
 		[JsonProperty("4k_count")]
 		public int FourKillCount
 		{
 			get { return _fourKillCount; }
-			set { Set(() => FourKillCount, ref _fourKillCount, value); }
+			set { Set(ref _fourKillCount, value); }
 		}
 
 		[JsonProperty("3k_count")]
 		public int ThreeKillCount
 		{
 			get { return _threekillCount; }
-			set { Set(() => ThreeKillCount, ref _threekillCount, value); }
+			set { Set(ref _threekillCount, value); }
 		}
 
 		[JsonProperty("2k_count")]
 		public int TwoKillCount
 		{
 			get { return _twokillCount; }
-			set { Set(() => TwoKillCount, ref _twokillCount, value); }
+			set { Set(ref _twokillCount, value); }
 		}
 
 		[JsonProperty("1k_count")]
 		public int OneKillCount
 		{
 			get { return _onekillCount; }
-			set { Set(() => OneKillCount, ref _onekillCount, value); }
+			set { Set(ref _onekillCount, value); }
 		}
 
 		[JsonProperty("hs_count")]
@@ -473,8 +478,8 @@ namespace Core.Models
 			get { return _headshotCount; }
 			set
 			{
-				Set(() => HeadshotCount, ref _headshotCount, value);
-				RaisePropertyChanged(() => HeadshotPercent);
+				Set(ref _headshotCount, value);
+				RaisePropertyChanged(nameof(HeadshotPercent));
 			}
 		}
 
@@ -486,35 +491,35 @@ namespace Core.Models
 				if (_killCount != 0 && _deathCount != 0) return Math.Round(_killCount / (decimal)_deathCount, 2);
 				return 0;
 			}
-			set { Set(() => KillDeathRatio, ref _killsDeathsRatio, value); }
+			set { Set(ref _killsDeathsRatio, value); }
 		}
 
 		[JsonProperty("mvp_count")]
 		public int RoundMvpCount
 		{
 			get { return _roundMvpCount; }
-			set { Set(() => RoundMvpCount, ref _roundMvpCount, value); }
+			set { Set(ref _roundMvpCount, value); }
 		}
 
 		[JsonProperty("hltv_rating")]
 		public float RatingHltv
 		{
 			get { return _ratingHltv; }
-			set { Set(() => RatingHltv, ref _ratingHltv, value); }
+			set { Set(ref _ratingHltv, value); }
 		}
 
 		[JsonIgnore]
 		public decimal EseaRwsPointCount
 		{
 			get { return _eseaRwsPointCount; }
-			set { Set(() => EseaRwsPointCount, ref _eseaRwsPointCount, value); }
+			set { Set(ref _eseaRwsPointCount, value); }
 		}
 
 		[JsonProperty("esea_rws")]
 		public decimal EseaRws
 		{
 			get { return _eseaRws; }
-			set { Set(() => EseaRws, ref _eseaRws, value); }
+			set { Set(ref _eseaRws, value); }
 		}
 
 		[JsonProperty("shot_count")]
@@ -523,8 +528,8 @@ namespace Core.Models
 			get { return _shotCount; }
 			set
 			{
-				Set(() => ShotCount, ref _shotCount, value);
-				RaisePropertyChanged(() => Accuracy);
+				Set(ref _shotCount, value);
+				RaisePropertyChanged(nameof(Accuracy));
 			}
 		}
 
@@ -534,8 +539,8 @@ namespace Core.Models
 			get { return _hitCount; }
 			set
 			{
-				Set(() => HitCount, ref _hitCount, value);
-				RaisePropertyChanged(() => Accuracy);
+				Set(ref _hitCount, value);
+				RaisePropertyChanged(nameof(Accuracy));
 			}
 		}
 
@@ -546,168 +551,168 @@ namespace Core.Models
 		public bool IsVacBanned
 		{
 			get { return _isVacBanned; }
-			set { Set(() => IsVacBanned, ref _isVacBanned, value); }
+			set { Set(ref _isVacBanned, value); }
 		}
 
 		[JsonProperty("is_ow_banned")]
 		public bool IsOverwatchBanned
 		{
 			get { return _isOverwatchBanned; }
-			set { Set(() => IsOverwatchBanned, ref _isOverwatchBanned, value); }
+			set { Set(ref _isOverwatchBanned, value); }
 		}
 
 		[JsonProperty("flashbang_count")]
 		public int FlashbangThrownCount
 		{
 			get { return _flashbangThrownCount; }
-			set { Set(() => FlashbangThrownCount, ref _flashbangThrownCount, value); }
+			set { Set(ref _flashbangThrownCount, value); }
 		}
 
 		[JsonProperty("smoke_count")]
 		public int SmokeThrownCount
 		{
 			get { return _smokeThrownCount; }
-			set { Set(() => SmokeThrownCount, ref _smokeThrownCount, value); }
+			set { Set(ref _smokeThrownCount, value); }
 		}
 
 		[JsonProperty("he_count")]
 		public int HeGrenadeThrownCount
 		{
 			get { return _heGrenadeThrowCount; }
-			set { Set(() => HeGrenadeThrownCount, ref _heGrenadeThrowCount, value); }
+			set { Set(ref _heGrenadeThrowCount, value); }
 		}
 
 		[JsonProperty("molotov_count")]
 		public int MolotovThrownCount
 		{
 			get { return _molotovThrownCount; }
-			set { Set(() => MolotovThrownCount, ref _molotovThrownCount, value); }
+			set { Set(ref _molotovThrownCount, value); }
 		}
 
 		[JsonProperty("incendiary_count")]
 		public int IncendiaryThrownCount
 		{
 			get { return _incendiaryThrowCount; }
-			set { Set(() => IncendiaryThrownCount, ref _incendiaryThrowCount, value); }
+			set { Set(ref _incendiaryThrowCount, value); }
 		}
 
 		[JsonProperty("decoy_count")]
 		public int DecoyThrownCount
 		{
 			get { return _decoyThrownCount; }
-			set { Set(() => DecoyThrownCount, ref _decoyThrownCount, value); }
+			set { Set(ref _decoyThrownCount, value); }
 		}
 
 		[JsonProperty("round_count")]
 		public int RoundPlayedCount
 		{
 			get { return _roundPlayedCount; }
-			set { Set(() => RoundPlayedCount, ref _roundPlayedCount, value); }
+			set { Set(ref _roundPlayedCount, value); }
 		}
 
 		[JsonProperty("team_name")]
 		public string TeamName
 		{
 			get { return _teamName; }
-			set { Set(() => TeamName, ref _teamName, value); }
+			set { Set(ref _teamName, value); }
 		}
 
 		[JsonProperty("start_money_rounds")]
 		public Dictionary<int, int> StartMoneyRounds
 		{
 			get { return _startMoneyRounds; }
-			set { Set(() => StartMoneyRounds, ref _startMoneyRounds, value); }
+			set { Set(ref _startMoneyRounds, value); }
 		}
 
 		[JsonProperty("equipement_value_rounds")]
 		public Dictionary<int, int> EquipementValueRounds
 		{
 			get { return _equipementValueRounds; }
-			set { Set(() => EquipementValueRounds, ref _equipementValueRounds, value); }
+			set { Set(ref _equipementValueRounds, value); }
 		}
 
 		[JsonProperty("rounds_money_earned")]
 		public Dictionary<int, int> RoundsMoneyEarned
 		{
 			get { return _roundsMoneyEarned; }
-			set { Set(() => RoundsMoneyEarned, ref _roundsMoneyEarned, value); }
+			set { Set(ref _roundsMoneyEarned, value); }
 		}
 
 		[JsonProperty("time_death_rounds")]
 		public Dictionary<int, float> TimeDeathRounds
 		{
 			get { return _timeDeathRounds; }
-			set { Set(() => TimeDeathRounds, ref _timeDeathRounds, value); }
+			set { Set(ref _timeDeathRounds, value); }
 		}
 
 		[JsonProperty("entry_kills")]
 		public ObservableCollection<EntryKillEvent> EntryKills
 		{
 			get { return _entryKills; }
-			set { Set(() => EntryKills, ref _entryKills, value); }
+			set { Set(ref _entryKills, value); }
 		}
 
 		[JsonProperty("entry_hold_kills")]
 		public ObservableCollection<EntryHoldKillEvent> EntryHoldKills
 		{
 			get { return _entryHoldKills; }
-			set { Set(() => EntryHoldKills, ref _entryHoldKills, value); }
+			set { Set(ref _entryHoldKills, value); }
 		}
 
 		[JsonProperty("kills", IsReference = false)]
 		public ObservableCollection<KillEvent> Kills
 		{
 			get { return _kills; }
-			set { Set(() => Kills, ref _kills, value); }
+			set { Set(ref _kills, value); }
 		}
 
 		[JsonProperty("deaths", IsReference = false)]
 		public ObservableCollection<KillEvent> Deaths
 		{
 			get { return _deaths; }
-			set { Set(() => Deaths, ref _deaths, value); }
+			set { Set(ref _deaths, value); }
 		}
 
 		[JsonProperty("assits", IsReference = false)]
 		public ObservableCollection<KillEvent> Assists
 		{
 			get { return _assists; }
-			set { Set(() => Assists, ref _assists, value); }
+			set { Set(ref _assists, value); }
 		}
 
 		[JsonProperty("players_hurted")]
 		public ObservableCollection<PlayerHurtedEvent> PlayersHurted
 		{
 			get { return _playersHurted; }
-			set { Set(() => PlayersHurted, ref _playersHurted, value); }
+			set { Set(ref _playersHurted, value); }
 		}
 
 		[JsonProperty("clutches")]
 		public ObservableCollection<ClutchEvent> Clutches
 		{
 			get { return _clutches; }
-			set { Set(() => Clutches, ref _clutches, value); }
+			set { Set(ref _clutches, value); }
 		}
 
 		[JsonProperty("rank_old")]
 		public int RankNumberOld
 		{
 			get { return _rankNumberOld; }
-			set { Set(() => RankNumberOld, ref _rankNumberOld, value); }
+			set { Set(ref _rankNumberOld, value); }
 		}
 
 		[JsonProperty("rank_new")]
 		public int RankNumberNew
 		{
 			get { return _rankNumberNew; }
-			set { Set(() => RankNumberNew, ref _rankNumberNew, value); }
+			set { Set(ref _rankNumberNew, value); }
 		}
 
 		[JsonProperty("win_count")]
 		public int WinCount
 		{
 			get { return _winCount; }
-			set { Set(() => WinCount, ref _winCount, value); }
+			set { Set(ref _winCount, value); }
 		}
 
 		[JsonProperty("entry_kill_won_count")]
@@ -738,7 +743,7 @@ namespace Core.Models
 		public string AvatarUrl
 		{
 			get { return _avatarUrl; }
-			set { Set(() => AvatarUrl, ref _avatarUrl, value); }
+			set { Set(ref _avatarUrl, value); }
 		}
 
 		[JsonProperty("clutch_count")]
@@ -969,56 +974,56 @@ namespace Core.Models
 		public bool IsControllingBot
 		{
 			get { return _isControllingBot; }
-			set { Set(() => IsControllingBot, ref _isControllingBot, value); }
+			set { Set(ref _isControllingBot, value); }
 		}
 
 		[JsonIgnore]
 		public Side Side
 		{
 			get { return _side; }
-			set { Set(() => Side, ref _side, value); }
+			set { Set(ref _side, value); }
 		}
 
 		[JsonIgnore]
 		public bool IsAlive
 		{
 			get { return _isAlive; }
-			set { Set(() => IsAlive, ref _isAlive, value); }
+			set { Set(ref _isAlive, value); }
 		}
 
 		[JsonIgnore]
 		public bool IsConnected
 		{
 			get { return _isConnected; }
-			set { Set(() => IsConnected, ref _isConnected, value); }
+			set { Set(ref _isConnected, value); }
 		}
 
 		[JsonIgnore]
 		public float FlashDurationTemp
 		{
 			get { return _flashDurationTemp; }
-			set { Set(() => FlashDurationTemp, ref _flashDurationTemp, value); }
+			set { Set(ref _flashDurationTemp, value); }
 		}
 
 		[JsonIgnore]
 		public bool HasBomb
 		{
 			get { return _hasBomb; }
-			set { Set(() => HasBomb, ref _hasBomb, value); }
+			set { Set(ref _hasBomb, value); }
 		}
 
 		[JsonIgnore]
 		public bool HasEntryKill
 		{
 			get { return _hasEntryKill; }
-			set { Set(() => HasEntryKill, ref _hasEntryKill, value); }
+			set { Set(ref _hasEntryKill, value); }
 		}
 
 		[JsonIgnore]
 		public bool HasEntryHoldKill
 		{
 			get { return _hasEntryHoldKill; }
-			set { Set(() => HasEntryHoldKill, ref _hasEntryHoldKill, value); }
+			set { Set(ref _hasEntryHoldKill, value); }
 		}
 
 		[JsonIgnore]
@@ -1047,17 +1052,34 @@ namespace Core.Models
 			Kills = new ObservableCollection<KillEvent>();
 			Deaths = new ObservableCollection<KillEvent>();
 			Assists = new ObservableCollection<KillEvent>();
-			Kills.CollectionChanged += OnKillsCollectionChanged;
-			Deaths.CollectionChanged += OnDeathsCollectionChanged;
-			Assists.CollectionChanged += OnAssistsCollectionChanged;
-			EntryKills.CollectionChanged += OnEntryKillsCollectionChanged;
-			EntryHoldKills.CollectionChanged += OnEntryHoldKillsCollectionChanged;
-			PlayersHurted.CollectionChanged += OnPlayersHurtedCollectionChanged;
-			Clutches.CollectionChanged += OnClutchesCollectionChanged;
 			Side = Side.None;
 		}
 
-		private void OnAssistsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        public void EnableUpdates()
+        {
+            if (_keepUpdated)
+            {
+                return;
+            }
+
+            Kills.CollectionChanged += OnKillsCollectionChanged;
+            Deaths.CollectionChanged += OnDeathsCollectionChanged;
+            Assists.CollectionChanged += OnAssistsCollectionChanged;
+            EntryKills.CollectionChanged += OnEntryKillsCollectionChanged;
+            EntryHoldKills.CollectionChanged += OnEntryHoldKillsCollectionChanged;
+            PlayersHurted.CollectionChanged += OnPlayersHurtedCollectionChanged;
+            Clutches.CollectionChanged += OnClutchesCollectionChanged;
+            _keepUpdated = true;
+            OnKillsCollectionChanged(null, null);
+            OnDeathsCollectionChanged(null, null);
+            OnAssistsCollectionChanged(null, null);
+            OnEntryKillsCollectionChanged(null, null);
+            OnEntryHoldKillsCollectionChanged(null, null);
+            OnPlayersHurtedCollectionChanged(null, null);
+            OnClutchesCollectionChanged(null, null);
+        }
+
+        private void OnAssistsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
 			AssistCount = Assists.Count;
 		}
@@ -1065,7 +1087,7 @@ namespace Core.Models
 		private void OnDeathsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
 			DeathCount = Deaths.Count + SuicideCount;
-			RaisePropertyChanged(() => AverageTimeDeath);
+			RaisePropertyChanged(nameof(AverageTimeDeath));
 		}
 
 		private void OnKillsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -1079,44 +1101,44 @@ namespace Core.Models
 
 		private void OnPlayersHurtedCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => TotalDamageHealthCount);
-			RaisePropertyChanged(() => TotalDamageArmorCount);
-			RaisePropertyChanged(() => AverageHealthDamage);
+			RaisePropertyChanged(nameof(TotalDamageHealthCount));
+			RaisePropertyChanged(nameof(TotalDamageArmorCount));
+			RaisePropertyChanged(nameof(AverageHealthDamage));
 		}
 
 		private void OnEntryKillsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => EntryKillWonCount);
-			RaisePropertyChanged(() => EntryKillLossCount);
-			RaisePropertyChanged(() => RatioEntryKill);
+			RaisePropertyChanged(nameof(EntryKillWonCount));
+			RaisePropertyChanged(nameof(EntryKillLossCount));
+			RaisePropertyChanged(nameof(RatioEntryKill));
 		}
 
 		private void OnEntryHoldKillsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => EntryHoldKillWonCount);
-			RaisePropertyChanged(() => EntryHoldKillLossCount);
-			RaisePropertyChanged(() => RatioEntryHoldKill);
+			RaisePropertyChanged(nameof(EntryHoldKillWonCount));
+			RaisePropertyChanged(nameof(EntryHoldKillLossCount));
+			RaisePropertyChanged(nameof(RatioEntryHoldKill));
 		}
 
 		private void OnClutchesCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => ClutchCount);
-			RaisePropertyChanged(() => ClutchLostCount);
-			RaisePropertyChanged(() => Clutch1V1Count);
-			RaisePropertyChanged(() => Clutch1V2Count);
-			RaisePropertyChanged(() => Clutch1V3Count);
-			RaisePropertyChanged(() => Clutch1V4Count);
-			RaisePropertyChanged(() => Clutch1V5Count);
-			RaisePropertyChanged(() => Clutch1V1WonCount);
-			RaisePropertyChanged(() => Clutch1V2WonCount);
-			RaisePropertyChanged(() => Clutch1V3WonCount);
-			RaisePropertyChanged(() => Clutch1V4WonCount);
-			RaisePropertyChanged(() => Clutch1V5WonCount);
-			RaisePropertyChanged(() => Clutch1V1LossCount);
-			RaisePropertyChanged(() => Clutch1V2LossCount);
-			RaisePropertyChanged(() => Clutch1V3LossCount);
-			RaisePropertyChanged(() => Clutch1V4LossCount);
-			RaisePropertyChanged(() => Clutch1V5LossCount);
+			RaisePropertyChanged(nameof(ClutchCount));
+			RaisePropertyChanged(nameof(ClutchLostCount));
+			RaisePropertyChanged(nameof(Clutch1V1Count));
+			RaisePropertyChanged(nameof(Clutch1V2Count));
+			RaisePropertyChanged(nameof(Clutch1V3Count));
+			RaisePropertyChanged(nameof(Clutch1V4Count));
+			RaisePropertyChanged(nameof(Clutch1V5Count));
+			RaisePropertyChanged(nameof(Clutch1V1WonCount));
+			RaisePropertyChanged(nameof(Clutch1V2WonCount));
+			RaisePropertyChanged(nameof(Clutch1V3WonCount));
+			RaisePropertyChanged(nameof(Clutch1V4WonCount));
+			RaisePropertyChanged(nameof(Clutch1V5WonCount));
+			RaisePropertyChanged(nameof(Clutch1V1LossCount));
+			RaisePropertyChanged(nameof(Clutch1V2LossCount));
+			RaisePropertyChanged(nameof(Clutch1V3LossCount));
+			RaisePropertyChanged(nameof(Clutch1V4LossCount));
+			RaisePropertyChanged(nameof(Clutch1V5LossCount));
 		}
 
 		public void ResetStats()
@@ -1261,6 +1283,7 @@ namespace Core.Models
 			foreach (KeyValuePair<int, float> kvp in TimeDeathRounds)
 				player.TimeDeathRounds.Add(kvp.Key, kvp.Value);
 
+            player.EnableUpdates();
 			return player;
 		}
 

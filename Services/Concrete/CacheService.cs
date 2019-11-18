@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,17 +18,17 @@ namespace Services.Concrete
 {
 	public class CacheService : ICacheService
 	{
-		#region Properties
+        #region Properties
 
-		/// <summary>
-		/// Directory's path where are located JSON files
-		/// </summary>
-		private readonly string _pathFolderCache;
+        /// <summary>
+        /// Directory's path where are located JSON files
+        /// </summary>
+        private readonly string _pathFolderCache;
 
-		/// <summary>
-		/// JSON Settings
-		/// </summary>
-		private readonly JsonSerializerSettings _settingsJson = new JsonSerializerSettings();
+        /// <summary>
+        /// JSON Settings
+        /// </summary>
+        private readonly JsonSerializerSettings _settingsJson = new JsonSerializerSettings();
 
 		private const string SUSPECT_FILENAME = "suspects.json";
 
@@ -209,6 +209,7 @@ namespace Services.Concrete
 			try
 			{
 				demo = await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<Demo>(json, _settingsJson));
+                demo.EnableUpdates();
 				demo.Source = Source.Factory(demo.SourceName);
 			}
 			catch (Exception e)

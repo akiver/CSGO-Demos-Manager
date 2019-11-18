@@ -27,28 +27,28 @@ namespace Core.Models
 		public string Name
 		{
 			get { return _name; }
-			set { Set(() => Name, ref _name, value); }
+			set { Set(ref _name, value); }
 		}
 
 		[JsonProperty("score")]
 		public int Score
 		{
 			get { return _score; }
-			set { Set(() => Score, ref _score, value); }
+			set { Set(ref _score, value); }
 		}
 
 		[JsonProperty("score_first_half")]
 		public int ScoreFirstHalf
 		{
 			get { return _scoreFirstHalf; }
-			set { Set(() => ScoreFirstHalf, ref _scoreFirstHalf, value); }
+			set { Set(ref _scoreFirstHalf, value); }
 		}
 
 		[JsonProperty("score_second_half")]
 		public int ScoreSecondHalf
 		{
 			get { return _scoreSecondHalf; }
-			set { Set(() => ScoreSecondHalf, ref _scoreSecondHalf, value); }
+			set { Set(ref _scoreSecondHalf, value); }
 		}
 
 		[JsonProperty("team_players", IsReference = false)]
@@ -369,35 +369,35 @@ namespace Core.Models
 
 		private void OnDeathsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => DeathCount);
+			RaisePropertyChanged(nameof(DeathCount));
 		}
 
 		private void OnAssistsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => AssistCount);
+			RaisePropertyChanged(nameof(AssistCount));
 		}
 
 		private void OnKillsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => KillCount);
-			RaisePropertyChanged(() => JumpKillCount);
-			RaisePropertyChanged(() => CrouchKillCount);
+			RaisePropertyChanged(nameof(KillCount));
+			RaisePropertyChanged(nameof(JumpKillCount));
+			RaisePropertyChanged(nameof(CrouchKillCount));
 		}
 
 		private void OnEntryKillsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => EntryKillCount);
-			RaisePropertyChanged(() => EntryKillWonCount);
-			RaisePropertyChanged(() => EntryKillLossCount);
-			RaisePropertyChanged(() => RatioEntryKill);
+			RaisePropertyChanged(nameof(EntryKillCount));
+			RaisePropertyChanged(nameof(EntryKillWonCount));
+			RaisePropertyChanged(nameof(EntryKillLossCount));
+			RaisePropertyChanged(nameof(RatioEntryKill));
 		}
 
 		private void OnEntryHoldKillsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
-			RaisePropertyChanged(() => EntryHoldKillCount);
-			RaisePropertyChanged(() => EntryHoldKillWonCount);
-			RaisePropertyChanged(() => EntryHoldKillLossCount);
-			RaisePropertyChanged(() => RatioEntryHoldKill);
+			RaisePropertyChanged(nameof(EntryHoldKillCount));
+			RaisePropertyChanged(nameof(EntryHoldKillWonCount));
+			RaisePropertyChanged(nameof(EntryHoldKillLossCount));
+			RaisePropertyChanged(nameof(RatioEntryHoldKill));
 		}
 
 		#endregion

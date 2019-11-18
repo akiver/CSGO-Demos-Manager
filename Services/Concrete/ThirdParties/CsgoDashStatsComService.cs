@@ -7,6 +7,7 @@ namespace Services.Concrete.ThirdParties
 {
     class CsgoDashStatsComService : IThirdPartyInterface
     {
+        private const string ENDPOINT = "https://csgo-stats.net/api/match/status";
 
         public async Task<ThirdPartyData> SendShareCode(Demo demo, string shareCode)
         {

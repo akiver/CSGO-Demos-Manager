@@ -110,62 +110,70 @@ namespace Services.Concrete
 			return suspect;
 		}
 
-		public async Task<List<Suspect>> GetBanStatusForUserList(List<string> users)
+		public async Task<List<Suspect>> GetBanStatusForUserList(List<string> allUsers)
 		{
-			List<Suspect> suspects = new List<Suspect>();
+			List<Suspect> suspects = new List<Suspect>(allUsers.Count);
 			try
-			{
+            {
 				using (var httpClient = new HttpClient())
 				{
-					string ids = string.Join(",", users.ToArray());
-					//  Grab general infos from user
-					string url = string.Format(PLAYERS_SUMMARIES_URL, Properties.Resources.steam_api_key, ids);
-					HttpResponseMessage result = await httpClient.GetAsync(url);
-					if (result.StatusCode == HttpStatusCode.OK)
+					foreach (var users in allUsers.Batch(80))
 					{
-						string json = await result.Content.ReadAsStringAsync();
-						JObject o = JObject.Parse(json);
-						var playerSummaryList = o.SelectToken("response.players.player").ToObject<List<PlayerSummary>>();
-						if (playerSummaryList == null) return null;
+						string ids = string.Join(",", users.ToArray());
+						//  Grab general infos from user
+						string url = string.Format(PLAYERS_SUMMARIES_URL, Properties.Resources.steam_api_key, ids);
+                        if (url.Length >= 2083)
+                        {
+                            Logger.Instance.Log(new Exception("The following URL is too long: " + url));
+                        }
 
-						// Grab VAC ban infos from user
-						url = string.Format(PLAYERS_BAN_URL, Properties.Resources.steam_api_key, ids);
-						result = await httpClient.GetAsync(url);
-						if (result.StatusCode == HttpStatusCode.OK)
+                        HttpResponseMessage result = await httpClient.GetAsync(url);
+                        result.EnsureSuccessStatusCode();
+					    string json = await result.Content.ReadAsStringAsync();
+					    var o = JObject.Parse(json);
+					    var playerSummaryList = o.SelectToken("response.players.player").ToObject<List<PlayerSummary>>();
+					    if (playerSummaryList == null) return null;
+
+					    // Grab VAC ban infos from user
+					    url = string.Format(PLAYERS_BAN_URL, Properties.Resources.steam_api_key, ids);
+                        if (url.Length >= 2083)
+                        {
+                            Logger.Instance.Log(new Exception("The following URL is too long: " + url));
+                        }
+                        result = await httpClient.GetAsync(url);
+                        result.EnsureSuccessStatusCode();
+						json = await result.Content.ReadAsStringAsync();
+						o = JObject.Parse(json);
+						var playerBanList = o.SelectToken("players").ToObject<List<PlayerBan>>();
+						if (playerBanList == null) return null;
+
+						foreach (PlayerSummary playerSummary in playerSummaryList)
 						{
-							json = await result.Content.ReadAsStringAsync();
-							o = JObject.Parse(json);
-							var playerBanList = o.SelectToken("players").ToObject<List<PlayerBan>>();
-							if (playerBanList == null) return null;
-
-							foreach (PlayerSummary playerSummary in playerSummaryList)
+							if (playerSummary != null)
 							{
-								if (playerSummary != null)
+								Suspect suspect = new Suspect
 								{
-									Suspect suspect = new Suspect
-									{
-										SteamId = playerSummary.SteamId,
-										ProfileUrl = playerSummary.ProfileUrl,
-										Nickname = playerSummary.PersonaName,
-										LastLogOff = playerSummary.LastLogoff,
-										CurrentStatus = playerSummary.PersonaState,
-										ProfileState = playerSummary.ProfileState,
-										AvatarUrl = playerSummary.AvatarFull,
-										CommunityVisibilityState = playerSummary.CommunityVisibilityState
-									};
-									suspects.Add(suspect);
-								}
+									SteamId = playerSummary.SteamId,
+									ProfileUrl = playerSummary.ProfileUrl,
+									Nickname = playerSummary.PersonaName,
+									LastLogOff = playerSummary.LastLogoff,
+									CurrentStatus = playerSummary.PersonaState,
+									ProfileState = playerSummary.ProfileState,
+									AvatarUrl = playerSummary.AvatarFull,
+									CommunityVisibilityState = playerSummary.CommunityVisibilityState
+								};
+								suspects.Add(suspect);
 							}
+						}
 
-							foreach (PlayerBan playerBan in playerBanList)
-							{
-								suspects.First(pl => pl.SteamId == playerBan.SteamId).DaySinceLastBanCount = playerBan.DaysSinceLastBan;
-								suspects.First(pl => pl.SteamId == playerBan.SteamId).BanCount = playerBan.NumberOfVacBans;
-								suspects.First(pl => pl.SteamId == playerBan.SteamId).VacBanned = playerBan.VacBanned;
-								suspects.First(pl => pl.SteamId == playerBan.SteamId).CommunityBanned = playerBan.CommunityBanned;
-								suspects.First(pl => pl.SteamId == playerBan.SteamId).EconomyBan = playerBan.EconomyBan;
-								suspects.First(pl => pl.SteamId == playerBan.SteamId).GameBanCount = playerBan.NumberOfGameBans;
-							}
+						foreach (PlayerBan playerBan in playerBanList)
+						{
+							suspects.First(pl => pl.SteamId == playerBan.SteamId).DaySinceLastBanCount = playerBan.DaysSinceLastBan;
+							suspects.First(pl => pl.SteamId == playerBan.SteamId).BanCount = playerBan.NumberOfVacBans;
+							suspects.First(pl => pl.SteamId == playerBan.SteamId).VacBanned = playerBan.VacBanned;
+							suspects.First(pl => pl.SteamId == playerBan.SteamId).CommunityBanned = playerBan.CommunityBanned;
+							suspects.First(pl => pl.SteamId == playerBan.SteamId).EconomyBan = playerBan.EconomyBan;
+							suspects.First(pl => pl.SteamId == playerBan.SteamId).GameBanCount = playerBan.NumberOfGameBans;
 						}
 					}
 				}
@@ -217,7 +225,7 @@ namespace Services.Concrete
 		{
 			ShareCode.ShareCodeStruct s = ShareCode.Decode(shareCode);
 
-			int result = await StartBoiler(ct, $"{s.MatchId} {s.OutcomeId} {s.TokenId}");
+			int result = await StartBoiler(ct, args: $"{s.MatchId} {s.OutcomeId} {s.TokenId}");
 
 			return result;
 		}
@@ -302,19 +310,38 @@ namespace Services.Concrete
 
 		private static async Task<int> StartBoiler(CancellationToken ct, string args = "")
 		{
-			ct.ThrowIfCancellationRequested();
-			string hash = GetSha1HashFile(BOILER_EXE_NAME);
+            var boilerExe = BOILER_EXE_NAME;
+            var workDir = Environment.CurrentDirectory;
+            if (!File.Exists(boilerExe))
+            {
+                // find relative to assembly
+                var loc = Path.GetDirectoryName(typeof(SteamService).Assembly.Location);
+                var localBoiler = Path.Combine(loc, BOILER_EXE_NAME);
+                if (File.Exists(localBoiler))
+                {
+                    boilerExe = localBoiler;
+                    workDir = Path.GetDirectoryName(boilerExe);
+                }
+            }
+
+            // https://www.reddit.com/r/GlobalOffensive/comments/2uqovq/boiler_a_tool_to_archive_your_match_history/
+            // https://bitbucket.org/ACB/boiler/src/master/boiler/
+
+            // Maybe replace with https://steamworks.github.io/snippits/??
+            ct.ThrowIfCancellationRequested();
+			string hash = GetSha1HashFile(boilerExe);
 			if (!hash.Equals(BOILER_SHA1)) return 2;
 
 			Process[] currentProcess = Process.GetProcessesByName("csgo");
 			if (currentProcess.Length > 0) currentProcess[0].Kill();
 
-			Process boiler = new Process
-			{
-				StartInfo =
-				{
-					FileName = BOILER_EXE_NAME,
-					Arguments = $"\"{AppSettings.GetMatchListDataFilePath()}\" {args}",
+            Process boiler = new Process
+            {
+                StartInfo =
+                {
+                    FileName = boilerExe,
+                    Arguments = $"\"{AppSettings.GetMatchListDataFilePath()}\" {args}",
+                    WorkingDirectory = workDir,
 					UseShellExecute = false,
 					CreateNoWindow = true
 				}

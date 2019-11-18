@@ -105,6 +105,7 @@ namespace Services.Concrete
 			{
 				Id = demoId
 			};
+            demo.EnableUpdates();
 			bool demosIsCached = _cacheService.HasDemoInCache(demoId);
 			if (demosIsCached)
 			{
@@ -535,11 +536,13 @@ namespace Services.Concrete
 				HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
 				request.Method = "HEAD";
 				HttpWebResponse response = await request.GetResponseAsync() as HttpWebResponse;
+				var isOk = response.StatusCode == HttpStatusCode.OK;
 				response.Close();
-				return response.StatusCode == HttpStatusCode.OK;
+				return isOk;
 			}
-			catch
+			catch (Exception e)
 			{
+				Logger.Instance.Log(e);
 				return false;
 			}
 		}

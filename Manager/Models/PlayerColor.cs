@@ -7,7 +7,9 @@ namespace Manager.Models
 	{
 		public string Name { get; set; }
 
-		public SolidColorBrush Color { get; set; }
+        public string Team { get; set; }
+
+        public SolidColorBrush Color { get; set; }
 
 		public override bool Equals(object obj)
 		{

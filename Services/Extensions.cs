@@ -1,5 +1,7 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,9 +19,9 @@ namespace Services
 		public static Task WaitForExitAsync(this Process process, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var tcs = new TaskCompletionSource<object>();
-			process.EnableRaisingEvents = true;
 			process.Exited += (sender, args) => tcs.TrySetResult(null);
-			if (cancellationToken != default(CancellationToken))
+            process.EnableRaisingEvents = true;
+            if (cancellationToken != default(CancellationToken))
 				cancellationToken.Register(tcs.SetCanceled);
 
 			return tcs.Task;
@@ -30,5 +32,12 @@ namespace Services
 		{
 			return source.IndexOf(toCheck, comp) >= 0;
 		}
-	}
+
+        public static IEnumerable<IEnumerable<T>> Batch<T>(this IEnumerable<T> items, int maxItems)
+        {
+            return items.Select((item, inx) => new { item, inx })
+                .GroupBy(x => x.inx / maxItems)
+                .Select(g => g.Select(x => x.item));
+        }
+    }
 }

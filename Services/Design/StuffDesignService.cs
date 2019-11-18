@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Models;
@@ -14,7 +14,13 @@ namespace Services.Design
 			Random r = new Random();
 			for (int i = 0; i < 30; i++)
 			{
-				stuffs.Add(new Stuff
+                var p = new Player
+                {
+                    Name = "Player " + r.Next(1, 10)
+                };
+                p.EnableUpdates();
+
+                stuffs.Add(new Stuff
 				{
 					RoundNumber = r.Next(20),
 					Tick = r.Next(10000),
@@ -22,10 +28,7 @@ namespace Services.Design
 					ThrowerName = "Player " + r.Next(1, 10),
 					FlashedPlayers = new List<Player>
 					{
-						new Player
-						{
-							Name = "Player " + r.Next(1, 10)
-						}
+						p
 					}
 				});
 			}

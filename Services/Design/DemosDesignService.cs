@@ -30,7 +30,9 @@ namespace Services.Design
 
 		public Task<Demo> GetDemoHeaderAsync(string demoFilePath)
 		{
-			return Task.FromResult(new Demo());
+            var d = new Demo();
+            d.EnableUpdates();
+			return Task.FromResult(d);
 		}
 
 		public Task<List<Demo>> GetDemosHeader(List<string> folders, List<Demo> currentDemos = null, int size = 0)
@@ -49,12 +51,16 @@ namespace Services.Design
 		public Task<Demo> GetDemoDataAsync(Demo demo)
 		{
 			Demo newDemo = new Demo();
+            newDemo.EnableUpdates();
 			return Task.FromResult(newDemo);
 		}
 
 		public Task<Demo> GetDemoDataByIdAsync(string demoId)
 		{
-			return Task.FromResult(new Demo());
+            var demo = new Demo();
+            demo.EnableUpdates();
+
+            return Task.FromResult(demo);
 		}
 
 		public Task<Demo> AnalyzeDemo(Demo demo, CancellationToken token, Action<string, float> progressCallback = null)
@@ -101,6 +107,7 @@ namespace Services.Design
 					RoundPlayedCount = random.Next(100)
 				};
 
+                player.EnableUpdates();
 				players.Add(player);
 			}
 			Team teamCt = new Team
@@ -178,6 +185,7 @@ namespace Services.Design
 					SideTrouble = Side.None,
 					Kills = kills
 				};
+                round.EnableUpdates();
 				rounds.Add(round);
 			}
 
@@ -352,6 +360,7 @@ namespace Services.Design
 					RoundMvpCount = random.Next(6)
 				};
 
+                player.EnableUpdates();
 				players.Add(player);
 			}
 
@@ -375,6 +384,7 @@ namespace Services.Design
 					EndTick = currentTick + 5000,
 				};
 				currentTick += 5000;
+                round.EnableUpdates();
 				rounds.Add(round);
 			}
 

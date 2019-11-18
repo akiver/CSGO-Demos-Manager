@@ -727,7 +727,7 @@
 																	Format="{} {0:F1}%"/>
 							</telerik:BarSeries.LabelDefinitions>
 						</telerik:BarSeries>
-						<telerik:BarSeries ItemsSource="{Binding CobblestonePercentDatas}"
+						<telerik:BarSeries ItemsSource="{Binding VertigoPercentDatas}"
 										   CategoryBinding="Label"
 										   ValueBinding="Value"
 										   ShowLabels="True">

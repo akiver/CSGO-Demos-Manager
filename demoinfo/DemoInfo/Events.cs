@@ -927,6 +927,86 @@ namespace DemoInfo
 				OriginalName = "weapon_knife_push",
 				Element = EquipmentElement.Knife,
 			},
+			new EquipmentMapping
+			{
+				ItemIndex = 519,
+				OriginalName = "weapon_knife_ursus",
+				Element = EquipmentElement.Knife,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 520,
+				OriginalName = "weapon_knife_gypsy_jackknife",
+				Element = EquipmentElement.Knife,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 522,
+				OriginalName = "weapon_knife_stiletto",
+				Element = EquipmentElement.Knife,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 523,
+				OriginalName = "weapon_knife_widowmaker",
+				Element = EquipmentElement.Knife,
+			},
+            /* danger zone items */
+            new EquipmentMapping
+			{
+				ItemIndex = 69,
+				OriginalName = "weapon_fists",
+				Element = EquipmentElement.Knife,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 70,
+				OriginalName = "weapon_breachcharge",
+				Element = EquipmentElement.Bomb,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 75,
+				OriginalName = "weapon_axe",
+				Element = EquipmentElement.Knife,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 76,
+				OriginalName = "weapon_hammer",
+				Element = EquipmentElement.Knife,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 78,
+				OriginalName = "weapon_spanner",
+				Element = EquipmentElement.Knife,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 80,
+				OriginalName = "weapon_knife_ghost",
+				Element = EquipmentElement.Knife,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 83,
+				OriginalName = "weapon_frag_grenade",
+				Element = EquipmentElement.HE,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 81,
+				OriginalName = "weapon_firebomb",
+				Element = EquipmentElement.Molotov,
+			},
+			new EquipmentMapping
+			{
+				ItemIndex = 82,
+				OriginalName = "weapon_diversion",
+				Element = EquipmentElement.Decoy,
+			},
+
 		};
 	}
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using GalaSoft.MvvmLight;
 
 namespace Core.Models
@@ -94,31 +94,31 @@ namespace Core.Models
 		public string SteamId
 		{
 			get { return _steamId; }
-			set { Set(() => SteamId, ref _steamId, value); }
+			set { Set(ref _steamId, value); }
 		}
 
 		public string Nickname
 		{
 			get { return _nickname; }
-			set { Set(() => Nickname, ref _nickname, value); }
+			set { Set(ref _nickname, value); }
 		}
 
 		public string AvatarUrl
 		{
 			get { return _avatarUrl; }
-			set { Set(() => AvatarUrl, ref _avatarUrl, value); }
+			set { Set(ref _avatarUrl, value); }
 		}
 
 		public int CurrentStatus
 		{
 			get { return _currentStatus; }
-			set { Set(() => CurrentStatus, ref _currentStatus, value); }
+			set { Set(ref _currentStatus, value); }
 		}
 
 		public int CommunityVisibilityState
 		{
 			get { return _communityVisibilityState; }
-			set { Set(() => CommunityVisibilityState, ref _communityVisibilityState, value); }
+			set { Set(ref _communityVisibilityState, value); }
 		}
 
 		public string LastLogOffDate
@@ -134,55 +134,55 @@ namespace Core.Models
 		public int LastLogOff
 		{
 			get { return _lastLogOff; }
-			set { Set(() => LastLogOff, ref _lastLogOff, value); }
+			set { Set(ref _lastLogOff, value); }
 		}
 
 		public int ProfileState
 		{
 			get { return _profileState; }
-			set { Set(() => ProfileState, ref _profileState, value); }
+			set { Set(ref _profileState, value); }
 		}
 
 		public string ProfileUrl
 		{
 			get { return _profileUrl; }
-			set { Set(() => ProfileUrl, ref _profileUrl, value); }
+			set { Set(ref _profileUrl, value); }
 		}
 
 		public bool CommunityBanned
 		{
 			get { return _communityBanned; }
-			set { Set(() => CommunityBanned, ref _communityBanned, value); }
+			set { Set(ref _communityBanned, value); }
 		}
 
 		public bool VacBanned
 		{
 			get { return _vacBanned; }
-			set { Set(() => VacBanned, ref _vacBanned, value); }
+			set { Set(ref _vacBanned, value); }
 		}
 
 		public int BanCount
 		{
 			get { return _banCount; }
-			set { Set(() => BanCount, ref _banCount, value); }
+			set { Set(ref _banCount, value); }
 		}
 
 		public int GameBanCount
 		{
 			get { return _gameBanCount; }
-			set { Set(() => GameBanCount, ref _gameBanCount, value); }
+			set { Set(ref _gameBanCount, value); }
 		}
 
 		public int DaySinceLastBanCount
 		{
 			get { return _daySinceLastBanCount; }
-			set { Set(() => DaySinceLastBanCount, ref _daySinceLastBanCount, value); }
+			set { Set(ref _daySinceLastBanCount, value); }
 		}
 
 		public string EconomyBan
 		{
 			get { return _economyBan; }
-			set { Set(() => EconomyBan, ref _economyBan, value); }
+			set { Set(ref _economyBan, value); }
 		}
 
 		#endregion

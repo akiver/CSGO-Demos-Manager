@@ -81,6 +81,8 @@ namespace Services.Design
 				{
 					teamT.Players.Add(p);
 				}
+
+                p.EnableUpdates();
 				demo.Players.Add(p);
 			}
 
@@ -119,7 +121,8 @@ namespace Services.Design
 				round.EquipementValueTeamCt = r.Next(4000, 30000);
 				round.EquipementValueTeamT = r.Next(4000, 30000);
 				round.TradeKillCount = r.Next(4);
-				demo.Rounds.Add(round);
+                round.EnableUpdates();
+                demo.Rounds.Add(round);
 			}
 
 			demo.MostBombPlantedPlayer = demo.Players[r.Next(10)];
@@ -140,6 +143,7 @@ namespace Services.Design
 				ScoreTeamT = 3,
 			});
 
+            demo.EnableUpdates();
 			return Task.FromResult(demo);
 		}
 

@@ -224,6 +224,8 @@ namespace Services.Concrete.Analyzer
 						pl.TeamName = Demo.TeamT.Name;
 						if (!Demo.TeamT.Players.Contains(pl)) Demo.TeamT.Players.Add(pl);
 					}
+
+                    pl.EnableUpdates();
 				});
 			}
 		}

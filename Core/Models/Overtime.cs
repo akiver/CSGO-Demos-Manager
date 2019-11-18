@@ -21,21 +21,21 @@ namespace Core.Models
 		public int Number
 		{
 			get { return _number; }
-			set { Set(() => Number, ref _number, value); }
+			set { Set(ref _number, value); }
 		}
 
 		[JsonProperty("score_team_ct")]
 		public int ScoreTeamCt
 		{
 			get { return _scoreTeamCt; }
-			set { Set(() => ScoreTeamCt, ref _scoreTeamCt, value); }
+			set { Set(ref _scoreTeamCt, value); }
 		}
 
 		[JsonProperty("score_team_t")]
 		public int ScoreTeamT
 		{
 			get { return _scoreTeamT; }
-			set { Set(() => ScoreTeamT, ref _scoreTeamT, value); }
+			set { Set(ref _scoreTeamT, value); }
 		}
 	}
 }
