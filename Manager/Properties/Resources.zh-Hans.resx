@@ -2232,16 +2232,16 @@
     <value>烟雾弹</value>
   </data>
   <data name="CT" xml:space="preserve">
-    <value>CT</value>
+    <value>反恐精英</value>
   </data>
   <data name="Spec" xml:space="preserve">
     <value>观察者</value>
   </data>
   <data name="T" xml:space="preserve">
-    <value>T</value>
+    <value>恐怖分子</value>
   </data>
   <data name="Lost" xml:space="preserve">
-    <value>失败次数</value>
+    <value>失败</value>
   </data>
   <data name="LostSurrender" xml:space="preserve">
     <value>失败(投降)</value>
