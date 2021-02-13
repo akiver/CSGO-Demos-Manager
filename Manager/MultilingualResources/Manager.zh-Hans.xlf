@@ -2973,7 +2973,7 @@ You have to remove it from your account list to be able to add him in your white
         </trans-unit>
         <trans-unit id="CT" translate="yes" xml:space="preserve">
           <source>CT</source>
-          <target state="final">CT</target>
+          <target state="final">反恐精英</target>
         </trans-unit>
         <trans-unit id="Spec" translate="yes" xml:space="preserve">
           <source>SPEC</source>
@@ -2981,11 +2981,11 @@ You have to remove it from your account list to be able to add him in your white
         </trans-unit>
         <trans-unit id="T" translate="yes" xml:space="preserve">
           <source>T</source>
-          <target state="final">T</target>
+          <target state="final">恐怖分子</target>
         </trans-unit>
         <trans-unit id="Lost" translate="yes" xml:space="preserve">
           <source>Lost</source>
-          <target state="final">失败次数</target>
+          <target state="final">失败</target>
         </trans-unit>
         <trans-unit id="LostSurrender" translate="yes" xml:space="preserve">
           <source>Lost (S)</source>
