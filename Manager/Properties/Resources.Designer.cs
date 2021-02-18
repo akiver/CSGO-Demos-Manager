@@ -3445,6 +3445,15 @@ namespace Manager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HLTV2.
+        /// </summary>
+        public static string HeaderHltv2Rating {
+            get {
+                return ResourceManager.GetString("HeaderHltv2Rating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HLTV.
         /// </summary>
         public static string HeaderHltvRating {
@@ -4188,6 +4197,15 @@ namespace Manager.Properties {
         public static string HeaderToolTipHits {
             get {
                 return ResourceManager.GetString("HeaderToolTipHits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HLTV2 Rating.
+        /// </summary>
+        public static string HeaderToolTipHltv2Rating {
+            get {
+                return ResourceManager.GetString("HeaderToolTipHltv2Rating", resourceCulture);
             }
         }
         
@@ -5016,6 +5034,15 @@ namespace Manager.Properties {
         public static string Hits {
             get {
                 return ResourceManager.GetString("Hits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HLTV2 (HLTV2 Rating).
+        /// </summary>
+        public static string Hltv2Full {
+            get {
+                return ResourceManager.GetString("Hltv2Full", resourceCulture);
             }
         }
         

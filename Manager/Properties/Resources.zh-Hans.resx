@@ -272,6 +272,9 @@
   <data name="HeaderHltvRating" xml:space="preserve">
     <value>HLTV</value>
   </data>
+	<data name="HeaderHltv2Rating" xml:space="preserve">
+    <value>HLTV2</value>
+  </data>
   <data name="Hostname" xml:space="preserve">
     <value>服务器</value>
   </data>
@@ -845,6 +848,9 @@
   <data name="HeaderToolTipHltvRating" xml:space="preserve">
     <value>HLTV 评分</value>
   </data>
+	<data name="HeaderToolTipHltv2Rating" xml:space="preserve">
+    <value>HLTV2 评分</value>
+  </data>
   <data name="HeaderToolTipIsOwBanned" xml:space="preserve">
     <value>监管 (OW) 封禁？</value>
   </data>
@@ -1133,6 +1139,9 @@
   </data>
   <data name="HltvFull" xml:space="preserve">
     <value>HLTV (HLTV 评分)</value>
+  </data>
+	<data name="Hltv2Full" xml:space="preserve">
+    <value>HLTV2 (HLTV2 评分)</value>
   </data>
   <data name="JumpKillsFull" xml:space="preserve">
     <value>JK (跳起杀敌)</value>

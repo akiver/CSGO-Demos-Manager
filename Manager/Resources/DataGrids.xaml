@@ -300,9 +300,13 @@
 
 	<Style TargetType="DataGridColumnHeader" x:Key="RatingHeader" BasedOn="{StaticResource DataGridColumnHeaderStyle}">
 		<Setter Property="ToolTipService.ToolTip" Value="{x:Static properties:Resources.HeaderToolTipHltvRating}" />
-	</Style>
+    </Style>
 
-	<Style TargetType="DataGridColumnHeader" x:Key="EseaRwsHeader" BasedOn="{StaticResource DataGridColumnHeaderStyle}">
+    <Style TargetType="DataGridColumnHeader" x:Key="Rating2Header" BasedOn="{StaticResource DataGridColumnHeaderStyle}">
+        <Setter Property="ToolTipService.ToolTip" Value="{x:Static properties:Resources.HeaderToolTipHltv2Rating}" />
+    </Style>
+
+    <Style TargetType="DataGridColumnHeader" x:Key="EseaRwsHeader" BasedOn="{StaticResource DataGridColumnHeaderStyle}">
 		<Setter Property="ToolTipService.ToolTip" Value="{x:Static properties:Resources.HeaderToolTipRws}" />
 	</Style>
 

@@ -623,7 +623,12 @@
 									Binding="{Binding AverageHltvRating}"
 									HeaderStyle="{StaticResource RatingHeader}"
 									Visibility="{Binding Source={StaticResource Locator}, Path=Settings.IsShowAllAccounts, Converter={StaticResource BooleanToVisibilityInvertedConverter}}" />
-				<DataGridTextColumn Width="Auto"
+                <DataGridTextColumn Width="Auto"
+									Header="{x:Static properties:Resources.HeaderHltv2Rating}"
+									Binding="{Binding AverageHltv2Rating}"
+									HeaderStyle="{StaticResource Rating2Header}"
+									Visibility="{Binding Source={StaticResource Locator}, Path=Settings.IsShowAllAccounts, Converter={StaticResource BooleanToVisibilityInvertedConverter}}" />
+                <DataGridTextColumn Width="Auto"
 									Header="{x:Static properties:Resources.RWS}"
 									Binding="{Binding AverageEseaRws}"
 									HeaderStyle="{StaticResource EseaRwsHeader}"

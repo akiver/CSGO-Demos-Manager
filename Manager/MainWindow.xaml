@@ -379,7 +379,7 @@
 								<CheckBox Content="{x:Static properties:Resources.HltvFull}"
 										  IsChecked="{Binding Source={StaticResource Locator}, Path=Settings.ShowPlayerScoreColumn}"
 										  Style="{StaticResource CheckBoxColumnOptionStyle}" />
-								<CheckBox Content="{x:Static properties:Resources.Hostname}"
+                                <CheckBox Content="{x:Static properties:Resources.Hostname}"
 										  IsChecked="{Binding Source={StaticResource Locator}, Path=Settings.ShowHostnameColumn}"
 										  Style="{StaticResource CheckBoxColumnOptionStyle}" />
 								<CheckBox Content="{x:Static properties:Resources.HeadshotsFull}"

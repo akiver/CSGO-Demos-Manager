@@ -83,6 +83,7 @@ namespace Services.Design
 					RankNumberNew = 5,
 					RankNumberOld = 4,
 					RatingHltv = (float)random.NextDouble(),
+					RatingHltv2 = (float)random.NextDouble(),
 					SteamId = random.Next(1000, 800000),
 					IsOverwatchBanned = random.Next(100) < 40,
 					IsVacBanned = random.Next(100) < 40,

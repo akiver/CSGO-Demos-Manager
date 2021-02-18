@@ -1162,7 +1162,9 @@ namespace Manager.ViewModel.Demos
 		private void UpdatePlayersSort()
 		{
 			PlayersTeam1Collection.SortDescriptions.Add(new SortDescription("RatingHltv", ListSortDirection.Descending));
+			PlayersTeam1Collection.SortDescriptions.Add(new SortDescription("RatingHltv2", ListSortDirection.Descending));
 			PlayersTeam2Collection.SortDescriptions.Add(new SortDescription("RatingHltv", ListSortDirection.Descending));
+			PlayersTeam2Collection.SortDescriptions.Add(new SortDescription("RatingHltv2", ListSortDirection.Descending));
 		}
 
 		/// <summary>

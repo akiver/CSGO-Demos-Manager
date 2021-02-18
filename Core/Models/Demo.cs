@@ -257,6 +257,11 @@ namespace Core.Models
 		private float _averageHltvRating;
 
 		/// <summary>
+		/// Average HLTV2 ranking (AVG players)
+		/// </summary>
+		private float _averageHltv2Rating;
+
+		/// <summary>
 		/// Average ESEA RWS (AVG players)
 		/// </summary>
 		private decimal _averageEseaRws;
@@ -1037,6 +1042,13 @@ namespace Core.Models
 			set { Set(() => AverageHltvRating, ref _averageHltvRating, value); }
 		}
 
+		[JsonProperty("average_hltv2_rating")]
+		public float AverageHltv2Rating
+		{
+			get { return _averageHltv2Rating; }
+			set { Set(() => AverageHltv2Rating, ref _averageHltv2Rating, value); }
+		}
+
 		[JsonProperty("average_esea_rws")]
 		public decimal AverageEseaRws
 		{
@@ -1117,6 +1129,7 @@ namespace Core.Models
 				AverageEseaRws = AverageEseaRws,
 				AverageHealthDamage = AverageHealthDamage,
 				AverageHltvRating = AverageHltvRating,
+				AverageHltv2Rating = AverageHltv2Rating,
 				BombDefusedCount = BombDefusedCount,
 				BombExplodedCount = BombExplodedCount,
 				BombPlantedCount = BombPlantedCount,
@@ -1271,6 +1284,7 @@ namespace Core.Models
 			AverageEseaRws = demo.AverageEseaRws;
 			AverageHealthDamage = demo.AverageHealthDamage;
 			AverageHltvRating = demo.AverageHltvRating;
+			AverageHltv2Rating = demo.AverageHltv2Rating;
 			BombDefusedCount = demo.BombDefusedCount;
 			BombExplodedCount = demo.BombExplodedCount;
 			BombPlantedCount = demo.BombPlantedCount;
@@ -1321,6 +1335,7 @@ namespace Core.Models
 				AverageEseaRws = 0;
 				AverageHealthDamage = 0;
 				AverageHltvRating = 0;
+				AverageHltv2Rating = 0;
 				BombDefusedCount = 0;
 				BombExplodedCount = 0;
 				BombPlantedCount = 0;
@@ -1465,6 +1480,8 @@ namespace Core.Models
 			{
 				float totalHltv = Players.Sum(player => player.RatingHltv);
 				AverageHltvRating = totalHltv / Players.Count;
+				float totalHltv2 = Players.Sum(player => player.RatingHltv2);
+				AverageHltv2Rating = totalHltv2 / Players.Count;
 				decimal totalEseaRws = Players.Sum(player => player.EseaRws);
 				AverageEseaRws = Math.Round(totalEseaRws / Players.Count, 2);
 			}

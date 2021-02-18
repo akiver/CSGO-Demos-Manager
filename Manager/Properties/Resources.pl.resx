@@ -272,6 +272,9 @@
   <data name="HeaderHltvRating" xml:space="preserve">
     <value>HLTV</value>
   </data>
+	<data name="HeaderHltv2Rating" xml:space="preserve">
+    <value>HLTV2</value>
+  </data>
   <data name="Hostname" xml:space="preserve">
     <value>Nazwa hosta</value>
   </data>
@@ -845,6 +848,9 @@
   <data name="HeaderToolTipHltvRating" xml:space="preserve">
     <value>Ocena HLTV</value>
   </data>
+	<data name="HeaderToolTipHltv2Rating" xml:space="preserve">
+    <value>Ocena HLTV2</value>
+  </data>
   <data name="HeaderToolTipIsOwBanned" xml:space="preserve">
     <value>Zbanowany przez Overwatch?</value>
   </data>
@@ -1134,7 +1140,10 @@
   <data name="HltvFull" xml:space="preserve">
     <value>HLTV (Ocena HLTV)</value>
   </data>
-  <data name="JumpKillsFull" xml:space="preserve">
+	<data name="Hltv2Full" xml:space="preserve">
+    <value>HLTV2 (Ocena HLTV2)</value>
+  </data>
+	<data name="JumpKillsFull" xml:space="preserve">
     <value>ZWS (Zabójstwa W Skoku)</value>
   </data>
   <data name="KillsDeathsRatioFull" xml:space="preserve">

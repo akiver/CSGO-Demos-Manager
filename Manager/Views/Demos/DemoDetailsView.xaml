@@ -915,7 +915,12 @@
 														Header="{x:Static properties:Resources.HeaderHltvRating}"
 														Binding="{Binding RatingHltv}"
 														Visibility="{Binding Source={StaticResource Locator}, Path=Settings.ShowPlayerScoreColumn, Converter={StaticResource BooleanToVisibilityConverter}}" SortDirection="Descending" />
-									<DataGridTextColumn HeaderStyle="{StaticResource EseaRwsHeader}"
+                                    <DataGridTextColumn HeaderStyle="{StaticResource Rating2Header}"
+														Width="Auto"
+														Header="{x:Static properties:Resources.HeaderHltv2Rating}"
+														Binding="{Binding Rating2Hltv}"
+														Visibility="{Binding Source={StaticResource Locator}, Path=Settings.ShowPlayerScoreColumn, Converter={StaticResource BooleanToVisibilityConverter}}" SortDirection="Descending" />
+                                    <DataGridTextColumn HeaderStyle="{StaticResource EseaRwsHeader}"
 														Width="Auto"
 														Header="{x:Static properties:Resources.RWS}"
 														Binding="{Binding EseaRws}"
@@ -1158,7 +1163,12 @@
 														Header="{x:Static properties:Resources.HeaderHltvRating}"
 														Binding="{Binding RatingHltv}"
 														Visibility="{Binding Source={StaticResource Locator}, Path=Settings.ShowPlayerScoreColumn, Converter={StaticResource BooleanToVisibilityConverter}}" SortDirection="Descending" />
-									<DataGridTextColumn HeaderStyle="{StaticResource EseaRwsHeader}"
+                                    <DataGridTextColumn HeaderStyle="{StaticResource Rating2Header}"
+														Width="Auto"
+														Header="{x:Static properties:Resources.HeaderHltv2Rating}"
+														Binding="{Binding RatingHltv2}"
+														Visibility="{Binding Source={StaticResource Locator}, Path=Settings.ShowPlayerScoreColumn, Converter={StaticResource BooleanToVisibilityConverter}}" SortDirection="Descending" />
+                                    <DataGridTextColumn HeaderStyle="{StaticResource EseaRwsHeader}"
 														Width="Auto"
 														Header="{x:Static properties:Resources.RWS}"
 														Binding="{Binding EseaRws}"

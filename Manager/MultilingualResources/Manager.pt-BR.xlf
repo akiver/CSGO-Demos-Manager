@@ -358,6 +358,10 @@
           <source>HLTV</source>
           <target state="final">HLTV</target>
         </trans-unit>
+		  <trans-unit id="HeaderHltv2Rating" translate="yes" xml:space="preserve">
+          <source>HLTV2</source>
+          <target state="final">HLTV2</target>
+        </trans-unit>
         <trans-unit id="Hostname" translate="yes" xml:space="preserve">
           <source>Hostname</source>
           <target state="final">Servidor</target>
@@ -1114,6 +1118,10 @@
           <source>HLTV Rating</source>
           <target state="final">HLTV Rating</target>
         </trans-unit>
+		  <trans-unit id="HeaderToolTipHltv2Rating" translate="yes" xml:space="preserve">
+          <source>HLTV2 Rating</source>
+          <target state="final">HLTV2 Rating</target>
+        </trans-unit>
         <trans-unit id="HeaderToolTipIsOwBanned" translate="yes" xml:space="preserve">
           <source>Overwatch banned?</source>
           <target state="final">Banido via Overwtach?</target>
@@ -1497,6 +1505,10 @@
         <trans-unit id="HltvFull" translate="yes" xml:space="preserve">
           <source>HLTV (HLTV Rating)</source>
           <target state="final">HLTV (HLTV Rating)</target>
+        </trans-unit>
+		  <trans-unit id="Hltv2Full" translate="yes" xml:space="preserve">
+          <source>HLTV2 (HLTV2 Rating)</source>
+          <target state="final">HLTV2 (HLTV2 Rating)</target>
         </trans-unit>
         <trans-unit id="JumpKillsFull" translate="yes" xml:space="preserve">
           <source>JK (Jump Kills)</source>

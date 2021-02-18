@@ -78,37 +78,43 @@
 				<TextBlock Text="{Binding CurrentPlayer.RatingHltv, StringFormat='{} {0}'}"
 						   Style="{StaticResource TextBlockHighlightBig}"/>
 			</TextBlock>
-			<TextBlock Text="{x:Static properties:Resources.RWS}"
+            <TextBlock Text="{x:Static properties:Resources.HeaderToolTipHltv2Rating}"
+					   FontSize="18"
+					   ToolTip="{x:Static properties:Resources.HeaderToolTipHltv2Rating}">
+				<TextBlock Text="{Binding CurrentPlayer.RatingHltv2, StringFormat='{} {0}'}"
+						   Style="{StaticResource TextBlockHighlightBig}"/>
+			</TextBlock>
+            <TextBlock Text="{x:Static properties:Resources.RWS}"
 					   FontSize="18"
 					   ToolTip="{x:Static properties:Resources.EseaRwsFull}">
 				<TextBlock Text="{Binding CurrentPlayer.EseaRws, StringFormat='{} {0}'}"
 						   Style="{StaticResource TextBlockHighlightBig}"/>
 			</TextBlock>
-			<TextBlock Text="{x:Static properties:Resources.Shots}"
+            <TextBlock Text="{x:Static properties:Resources.Shots}"
 					   FontSize="18"
 					   ToolTip="{x:Static properties:Resources.ShotsFired}">
 				<TextBlock Text="{Binding CurrentPlayer.ShotCount, StringFormat='{} {0}'}"
 						   Style="{StaticResource TextBlockHighlightBig}"/>
 			</TextBlock>
-			<TextBlock Text="{x:Static properties:Resources.Hits}"
+            <TextBlock Text="{x:Static properties:Resources.Hits}"
 					   FontSize="18"
 					   ToolTip="{x:Static properties:Resources.Hits}">
 				<TextBlock Text="{Binding CurrentPlayer.HitCount, StringFormat='{} {0}'}"
 						   Style="{StaticResource TextBlockHighlightBig}"/>
 			</TextBlock>
-			<TextBlock Text="{x:Static properties:Resources.Accuracy}"
+            <TextBlock Text="{x:Static properties:Resources.Accuracy}"
 					   FontSize="18"
 					   ToolTip="{x:Static properties:Resources.AccuracyFull}">
 				<TextBlock Text="{Binding CurrentPlayer.Accuracy, StringFormat='{} {0}%'}"
 						   Style="{StaticResource TextBlockHighlightBig}"/>
 			</TextBlock>
-			<TextBlock Text="{x:Static properties:Resources.AverageTimeDeath}"
+            <TextBlock Text="{x:Static properties:Resources.AverageTimeDeath}"
 					   FontSize="18"
 					   ToolTip="{x:Static properties:Resources.AverageTimeDeathFull}">
 				<TextBlock Text="{Binding CurrentPlayer.AverageTimeDeath, StringFormat='{} {0}(s)'}"
 				           Style="{StaticResource TextBlockHighlightBig}"/>
 			</TextBlock>
-		</StackPanel>
+        </StackPanel>
 
 		<Grid Grid.Column="1" Margin="10 0 0 0">
 			<Grid.RowDefinitions>

@@ -95,6 +95,18 @@ namespace Services.Concrete.Analyzer
 		const double AVERAGE_SPR = 0.317; // average survived rounds per round
 		const double AVERAGE_RMK = 1.277; // average value calculated from rounds with multiple kills
 
+		// HTLV2 rating variables https://flashed.gg/posts/reverse-engineering-hltv-rating/
+		const double HLTV2_KAST_MOD = 0.0073; // KAST modifier
+		const double HLTV2_KPR_MOD = 0.3591; // KPR modifier
+		const double HLTV2_DPR_MOD = -0.5329; // DPR modifier
+		const double HLTV2_IMPACT_MOD = 0.2372; // Impact modifier
+		const double HLTV2_IMPACT_KPR_MOD = 2.13; //Impact KPR modifier
+		const double HLTV2_IMPACT_APR_MOD = 0.42; //Impact AssistPerRound modifier
+		const double HLTV2_IMPACT_OFFSET_MOD = -0.41; //Impact base modifier
+		const double HLTV2_ADR_MOD = 0.0032; // ADR modifier
+		const double HLTV2_OFFSET_MOD = 0.1587; // HLTV2 base modifier
+		
+
 		// Money awards
 		private const int LOSS_ROW_1 = 1400;
 		private const int LOSS_ROW_2 = 1900;
@@ -1549,8 +1561,12 @@ namespace Services.Concrete.Analyzer
 				{
 					player.OneKillCount, player.TwoKillCount, player.ThreeKillCount, player.FourKillCount, player.FiveKillCount
 				});
+
+				player.RatingHltv2 = (float)ComputeHltv2OrgRating(player, Demo);
+
 			}
 		}
+
 
 		/// <summary>
 		/// Compute HLTV.org's player rating from player data
@@ -1570,6 +1586,44 @@ namespace Services.Concrete.Analyzer
 			double roundsWithMultipleKillsRating = (nKills[0] + 4 * nKills[1] + 9 * nKills[2] + 16 * nKills[3] + 25 * nKills[4]) / (double)roundCount / AVERAGE_RMK;
 
 			return Math.Round((killRating + 0.7 * survivalRating + roundsWithMultipleKillsRating) / 2.7, 3);
+		}
+
+		/// <summary>
+		/// Compute HLTV.org's player rating from player data 2.0
+		/// </summary>
+		/// <param name="player">Player object to be calculated</param>
+		/// <param name="demo">Demo object to be calculated</param>
+		/// <returns></returns>
+		private static double ComputeHltv2OrgRating(Player player, Demo demo)
+		{
+			//KAST
+			double KAST = 0;
+			int KASTrounds = 0;
+			for (int round = 0; round < demo.Rounds.Count; round++)
+            {
+				if ((player.Kills.Any(k => k.RoundNumber == round)) || (player.Assists.Any(a => a.RoundNumber == round)) || (player.Deaths.Any(d => d.RoundNumber == round && d.IsTradeKill)) || (!player.Deaths.Any(d => d.RoundNumber == round)))
+                {
+					KASTrounds++;
+				}
+            }
+			KAST = HLTV2_KAST_MOD * (((double)KASTrounds / (double)demo.Rounds.Count)*100.0F);
+
+			//KPR
+			double KPR = HLTV2_KPR_MOD * player.KillPerRound;
+
+			//DPR
+			double DPR = HLTV2_DPR_MOD * player.DeathPerRound;
+
+			//ADR
+			double ADR = HLTV2_ADR_MOD * player.AverageHealthDamage;
+
+			//Impact
+			double Impact = HLTV2_IMPACT_MOD * ((HLTV2_IMPACT_KPR_MOD * player.KillPerRound) + (HLTV2_IMPACT_APR_MOD * player.AssistPerRound) + HLTV2_IMPACT_OFFSET_MOD);
+
+			//HLTV2
+			double HLTV2 = KAST + KPR + DPR + Impact + ADR + HLTV2_OFFSET_MOD;
+
+			return Math.Round(HLTV2, 3);
 		}
 
 		protected void ComputeEseaRws()

@@ -488,8 +488,9 @@
 						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition Width="Auto"/>
-						<ColumnDefinition Width="Auto"/>
-					</Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
 					<Grid Grid.Column="0"
 						  Margin="10"
@@ -579,9 +580,24 @@
 										   Style="{StaticResource StatsValueStyle}"/>
 							</StackPanel>
 						</Border>
-					</Grid>
+                    </Grid>
 
-					<Grid Grid.Column="6"
+                    <Grid Grid.Column="6"
+						  Margin="10"
+						  ToolTip="{x:Static properties:Resources.HeaderToolTipHltv2Rating}">
+                        <Border BorderBrush="{StaticResource LightWhiteBrush}"
+								BorderThickness="1">
+                            <StackPanel Orientation="Vertical"
+										Margin="5">
+                                <TextBlock Text="{x:Static properties:Resources.HeaderHltv2Rating}"
+										   Style="{StaticResource StatsTitleStyle}"/>
+                                <TextBlock Text="{Binding Hltv2Rating}"
+										   Style="{StaticResource StatsValueStyle}"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Column="7"
 						  Margin="10"
 						  ToolTip="{x:Static properties:Resources.HeaderToolTipEseaRws}">
 						<Border BorderBrush="{StaticResource LightWhiteBrush}"

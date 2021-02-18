@@ -64,6 +64,8 @@ namespace Services.Models.Stats
 
 		public double HltvRating { get; set; } = 0;
 
+		public double Hltv2Rating { get; set; } = 0;
+
 		public double EseaRws { get; set; } = 0;
 
 		public float TotalMatchesDuration { get; set; } = 0;

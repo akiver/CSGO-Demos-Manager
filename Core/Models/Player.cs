@@ -158,6 +158,11 @@ namespace Core.Models
 		private float _ratingHltv;
 
 		/// <summary>
+		/// Rating based on hltv.org formula that the player made during the match
+		/// </summary>
+		private float _ratingHltv2;
+
+		/// <summary>
 		/// ESEA points use to calculate RWS
 		/// </summary>
 		private decimal _eseaRwsPointCount = 0;
@@ -501,6 +506,13 @@ namespace Core.Models
 		{
 			get { return _ratingHltv; }
 			set { Set(() => RatingHltv, ref _ratingHltv, value); }
+		}
+
+		[JsonProperty("hltv2_rating")]
+		public float RatingHltv2
+		{
+			get { return _ratingHltv2; }
+			set { Set(() => RatingHltv2, ref _ratingHltv2, value); }
 		}
 
 		[JsonIgnore]
@@ -1148,6 +1160,7 @@ namespace Core.Models
 			MolotovThrownCount = 0;
 			OneKillCount = 0;
 			RatingHltv = 0;
+			RatingHltv2 = 0;
 			RoundMvpCount = 0;
 			RoundPlayedCount = 0;
 			Score = 0;
@@ -1216,6 +1229,7 @@ namespace Core.Models
 				RankNumberNew = RankNumberNew,
 				RankNumberOld = RankNumberOld,
 				RatingHltv = RatingHltv,
+				RatingHltv2 = RatingHltv2,
 				RoundPlayedCount = RoundPlayedCount,
 				RoundMvpCount = RoundMvpCount,
 				ShotCount = ShotCount,
@@ -1330,6 +1344,7 @@ namespace Core.Models
 			MolotovThrownCount = player.MolotovThrownCount;
 			OneKillCount = player.OneKillCount;
 			RatingHltv = player.RatingHltv;
+			RatingHltv2 = player.RatingHltv2;
 			RoundMvpCount = player.RoundMvpCount;
 			RoundPlayedCount = player.RoundPlayedCount;
 			Score = player.Score;

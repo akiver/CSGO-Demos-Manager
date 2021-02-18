@@ -98,6 +98,8 @@ namespace Manager.ViewModel.Accounts
 
 		private double _hltvRating;
 
+		private double _hltv2Rating;
+
 		private double _eseaRws;
 
 		private string _totalMatchTime;
@@ -294,6 +296,12 @@ namespace Manager.ViewModel.Accounts
 			set { Set(() => HltvRating, ref _hltvRating, value); }
 		}
 
+		public double Hltv2Rating
+		{
+			get { return _hltv2Rating; }
+			set { Set(() => Hltv2Rating, ref _hltv2Rating, value); }
+		}
+
 		public double EseaRws
 		{
 			get { return _eseaRws; }
@@ -463,6 +471,7 @@ namespace Manager.ViewModel.Accounts
 			DamageCount = datas.DamageCount;
 			RoundCount = datas.RoundCount;
 			HltvRating = datas.HltvRating;
+			Hltv2Rating = datas.Hltv2Rating;
 			EseaRws = datas.EseaRws;
 			OneVersusOneCount = datas.OneVersusOneCount;
 			OneVersusTwoCount = datas.OneVersusTwoCount;

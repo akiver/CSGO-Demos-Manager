@@ -44,6 +44,7 @@ namespace Services.Concrete
 				demo.DamageArmorCount = player.TotalDamageArmorCount;
 				demo.AverageHealthDamage = player.AverageHealthDamage;
 				demo.AverageHltvRating = player.RatingHltv;
+				demo.AverageHltv2Rating = player.RatingHltv2;
 				demo.AverageEseaRws = player.EseaRws;
 				demo.ClutchWonCount = player.ClutchWonCount;
 				demo.WinStatus = GetWinStatus(demo, accountSteamId);
@@ -84,6 +85,7 @@ namespace Services.Concrete
 						stats.ClutchCount += player.ClutchCount;
 						stats.ClutchWin += player.ClutchWonCount;
 						stats.HltvRating += player.RatingHltv;
+						stats.Hltv2Rating += player.RatingHltv2;
 						stats.EseaRws += (double)player.EseaRws;
 						stats.OneVersusOneCount += player.Clutch1V1WonCount;
 						stats.OneVersusTwoCount += player.Clutch1V2WonCount;
@@ -119,6 +121,10 @@ namespace Services.Concrete
 				if (stats.HltvRating > 0)
 				{
 					stats.HltvRating = Math.Round(stats.HltvRating / stats.MatchCount, 2);
+				}
+				if (stats.Hltv2Rating > 0)
+				{
+					stats.Hltv2Rating = Math.Round(stats.Hltv2Rating / stats.MatchCount, 2);
 				}
 				if (stats.EseaRws > 0)
 				{
